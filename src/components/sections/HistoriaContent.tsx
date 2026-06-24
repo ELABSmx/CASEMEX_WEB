@@ -26,9 +26,9 @@ export default function HistoriaContent() {
 
           <div>
             <SmartImage
-              src="/images/historia.jpg"
+              src="/images/manos.jpeg"
               alt={m("imagineAlt.historia")}
-              aspect="4 / 3"
+              aspect="3 / 2"
               sizes="(min-width: 1024px) 40vw, 100vw"
               placeholderLabel={m("placeholderLabel")}
             />

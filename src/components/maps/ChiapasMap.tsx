@@ -1,9 +1,17 @@
+"use client";
+
+import { useRef } from "react";
+import { gsap, useGSAP } from "@/lib/gsap/register";
+import { MM } from "@/lib/gsap/motionTokens";
+import { cn } from "@/lib/utils";
+
 /**
  * Designed map of Chiapas with labeled coffee zones. The outline is REAL
  * geometry — Chiapas state polygon from a public Mexico GeoJSON (angelnmara/
  * geojson, derived from INEGI), projected (equirectangular, cos-lat corrected)
  * to this viewBox. Region markers are placed at their true lat/lng.
- * {{TODO}}: confirm the exact sourcing zones/labels with the client.
+ * Interactive: highlights the pin matching `activeIndex` and staggers the pins
+ * in when the map enters the viewport. {{TODO}}: confirm exact zones with client.
  */
 
 type Region = { name: string; note?: string };
@@ -22,18 +30,36 @@ const OUTLINE =
 export default function ChiapasMap({
   regions,
   title,
+  activeIndex = null,
 }: {
   regions: Region[];
   title: string;
+  activeIndex?: number | null;
 }) {
+  const root = useRef<SVGSVGElement>(null);
+
+  // Stagger the pins in when the map enters the viewport (once).
+  useGSAP(
+    () => {
+      const pins = gsap.utils.toArray<SVGGElement>("[data-pin]", root.current);
+      const mm = gsap.matchMedia();
+      mm.add(MM.motionOk, () => {
+        gsap.from(pins, {
+          autoAlpha: 0,
+          duration: 0.4,
+          ease: "power2.out",
+          stagger: 0.12,
+          scrollTrigger: { trigger: root.current, start: "top 80%", once: true },
+        });
+      });
+      mm.add(MM.reduce, () => gsap.set(pins, { autoAlpha: 1 }));
+    },
+    { scope: root },
+  );
+
   return (
     <div className="w-full overflow-x-auto">
-      <svg
-        viewBox="0 0 1000 952"
-        role="img"
-        aria-label={title}
-        className="h-auto w-full"
-      >
+      <svg ref={root} viewBox="0 0 1000 952" role="img" aria-label={title} className="h-auto w-full">
         <title>{title}</title>
 
         {/* Real Chiapas outline */}
@@ -49,15 +75,34 @@ export default function ChiapasMap({
         {/* Region markers + labels at true coordinates */}
         {regions.slice(0, MARKERS.length).map((region, i) => {
           const m = MARKERS[i];
+          const active = activeIndex === i;
           return (
-            <g key={region.name}>
-              <circle cx={m.x} cy={m.y} r={22} className="fill-gold/15" />
-              <circle cx={m.x} cy={m.y} r={9} className="fill-gold" />
+            <g key={region.name} data-pin>
+              {/* Inner group scales on highlight (label stays put). */}
+              <g
+                style={{
+                  transformBox: "fill-box",
+                  transformOrigin: "center",
+                  transform: active ? "scale(1.35)" : "scale(1)",
+                  transition: "transform 0.3s cubic-bezier(0.22,1,0.36,1)",
+                }}
+              >
+                <circle
+                  cx={m.x}
+                  cy={m.y}
+                  r={22}
+                  className={cn("transition-all duration-300", active ? "fill-gold/35" : "fill-gold/15")}
+                />
+                <circle cx={m.x} cy={m.y} r={9} className="fill-gold" />
+              </g>
               <text
                 x={m.x + m.dx}
                 y={m.y + m.dy}
                 textAnchor={m.anchor}
-                className="fill-text text-[28px] font-semibold"
+                className={cn(
+                  "text-[28px] font-semibold transition-colors duration-300",
+                  active ? "fill-gold" : "fill-text",
+                )}
                 style={{ fontFamily: "var(--font-sans)", paintOrder: "stroke", stroke: "var(--color-bg)", strokeWidth: 6, strokeLinejoin: "round" }}
               >
                 {region.name}
