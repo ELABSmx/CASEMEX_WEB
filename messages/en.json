@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "title": "CASEMEX — Mexican green coffee for export",
+    "description": "Mexican green coffee trader and exporter since 1996. A family-run company from Chiapas supplying traders, exporters, roasters and brands with steady volume, consistent quality and traceability.",
+    "ogAlt": "CASEMEX — Mexican green coffee, beans pouring from a jute sack"
+  },
+  "nav": {
+    "home": "Home",
+    "company": "Company",
+    "process": "Process",
+    "products": "Products",
+    "certifications": "Certifications",
+    "regions": "Regions",
+    "contact": "Contact",
+    "cta": "Get a quote",
+    "menu": "Menu",
+    "close": "Close",
+    "skip": "Skip to content",
+    "langToggle": "Switch language to Spanish"
+  },
+  "hero": {
+    "kicker": "Mexican green coffee for export · Since 1996",
+    "headline": "The coffee that lets you deliver, every time",
+    "subhead": "A family company from Chiapas. We give roasters, brands and exporters the steady volume, consistent quality and on-time delivery their business depends on.",
+    "ctaPrimary": "Request a quote",
+    "ctaSecondary": "About the company",
+    "trust": ["30 years", "Third generation", "100% Mexican", "Certified coffee"]
+  },
+  "historia": {
+    "title": "A family-run company from Chiapas, since 1996",
+    "lead": "Three generations doing the same thing: reading every harvest and standing behind what we ship.",
+    "p1": "We started in 1996, in Chiapas, buying coffee from the region's growers and learning to read each harvest. Three decades later we are still a family business, now in its third generation, with more than 100 people on the team and an agronomy crew working in the field, alongside the people who grow the coffee.",
+    "p2": "Today we are one of Mexico's largest coffee traders, but the way we work has not changed: decisions made close to the source, direct relationships, and the responsibility of standing behind every lot we ship.",
+    "facts": [
+      { "value": "1996", "label": "Year founded" },
+      { "value": "3rd", "label": "Generation leading" },
+      { "value": "100+", "label": "Team members" },
+      { "value": "Chiapas", "label": "Home region" }
+    ]
+  },
+  "proceso": {
+    "title": "From the mountains to the world",
+    "lead": "We follow the coffee through every stage, from the high-altitude farm to the bag ready for export.",
+    "steps": [
+      { "n": "01", "title": "The highlands", "caption": "Chiapas coffee grows on high slopes, where the bean ripens slowly and gains its character." },
+      { "n": "02", "title": "The grower", "caption": "Our agronomy team works with hundreds of growers on their own land, harvest after harvest." },
+      { "n": "03", "title": "Processing", "caption": "Washed, naturals and European and American preps: each profile is handled with a defined method." },
+      { "n": "04", "title": "Consolidation", "caption": "We bring lots from many hands into even volumes, with traceability back to origin." },
+      { "n": "05", "title": "Green coffee", "caption": "It ships graded, bagged and ready for roasters and exporters in any country." }
+    ]
+  },
+  "productos": {
+    "title": "Green coffee of Mexican origin",
+    "lead": "Grades and preparations for every destination. The spec sheet makes the difference, not the photo.",
+    "arabica": {
+      "name": "Arabica",
+      "intro": "Our core bean, grown at altitude. Available in different grades and preparations depending on your destination and the profile you need.",
+      "grades": [
+        "Strictly High Grown (SHG) and High Grown",
+        "Naturals and Washed — Prime and Good",
+        "European and American preparation",
+        "Specialty 80+ SCA with traceability",
+        "Conventional"
+      ],
+      "cta": "Download spec sheet (PDF)"
+    },
+    "robusta": {
+      "name": "Robusta",
+      "intro": "Mexican Robusta for blends and volume, in conventional and certified versions. More body and caffeine.",
+      "grades": ["Conventional", "Certified"],
+      "cta": "Download spec sheet (PDF)"
+    },
+    "note": "Spec sheets with profile, altitude and certification are available as a PDF for each product."
+  },
+  "certificaciones": {
+    "title": "Certifications that back every lot",
+    "lead": "We work with coffee certified to the standards your clients recognize.",
+    "items": [
+      { "code": "USDA", "name": "USDA Organic", "blurb": "Coffee grown without synthetic agrochemicals, under the United States organic standard." },
+      { "code": "OCIA", "name": "OCIA", "blurb": "International organic certification that verifies crop management from the field." },
+      { "code": "4C", "name": "4C", "blurb": "A baseline standard confirming sustainable social, environmental and economic practices." },
+      { "code": "FT", "name": "Fair Trade", "blurb": "Fair trade: terms and prices that sustain growers' income." }
+    ],
+    "note": "We display the official seals once verified with the client; never an approximate logo."
+  },
+  "diferenciadores": {
+    "title": "What changes when you work with us",
+    "lead": "Your biggest risk is not getting the coffee you need. Here we turn it into certainty.",
+    "blocks": [
+      { "title": "Volume you can count on", "body": "A consolidated network of hundreds of growers means the volume is there when you need it, not only in a good harvest." },
+      { "title": "The same quality, lot after lot", "body": "We grade and check every shipment so the profile you approved is the one you get next time." },
+      { "title": "You know where it comes from", "body": "Every lot arrives with traceability to origin and the certification your market requires." },
+      { "title": "One partner, not hundreds", "body": "Instead of coordinating with hundreds of scattered growers, you deal with one company that decides fast and stands by its word." }
+    ]
+  },
+  "origenes": {
+    "title": "Our regions in Chiapas",
+    "lead": "We source across the state's coffee-growing zones, each with its own altitude, climate and cup profile.",
+    "mapTitle": "Map of the coffee-growing zones of Chiapas where CASEMEX sources green coffee",
+    "regions": [
+      { "name": "Soconusco", "note": "Pacific coast, high-grown coffee beside the Sierra Madre." },
+      { "name": "Sierra Madre", "note": "High slopes and cool climate, clean and sweet profiles." },
+      { "name": "Frailesca", "note": "Central valleys and hillsides with volume production." },
+      { "name": "Norte / Selva", "note": "Humid zones in the north of the state, shade-grown coffee." }
+    ],
+    "note": "We'll confirm the exact zones and their profiles with you before every operation."
+  },
+  "contacto": {
+    "title": "Request your quote",
+    "lead": "Tell us what coffee you need and we'll come back with a proposal. You can also reach us on WhatsApp.",
+    "form": {
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "country": "Destination country",
+      "product": "Product of interest",
+      "productOptions": { "arabica": "Arabica", "robusta": "Robusta", "both": "Both", "specialty": "Specialty 80+ SCA" },
+      "grade": "Grade or profile",
+      "volume": "Estimated volume",
+      "volumePlaceholder": "e.g. bags / tons",
+      "certification": "Certification needed",
+      "certOptions": { "none": "None", "usda": "USDA Organic", "ocia": "OCIA", "fourc": "4C", "fairtrade": "Fair Trade", "other": "Other" },
+      "message": "Message",
+      "submit": "Send request",
+      "sending": "Sending…",
+      "successTitle": "We've received your request.",
+      "successBody": "We'll be in touch soon, during business hours.",
+      "errorTitle": "We couldn't send your request.",
+      "errorBody": "Please try again or message us on WhatsApp.",
+      "required": "This field is required.",
+      "invalidEmail": "Enter a valid email address.",
+      "tooLong": "This text is too long."
+    },
+    "whatsapp": "Message us on WhatsApp",
+    "email": "eduardo.casemex@gmail.com",
+    "locationLabel": "Location",
+    "location": "Chiapas, Mexico",
+    "hours": "We reply during business hours."
+  },
+  "footer": {
+    "legalName": "Cafés y Semillas de México S.A. de C.V.",
+    "tagline": "Todo es café.",
+    "blurb": "Mexican green coffee trader and exporter since 1996.",
+    "navTitle": "Navigation",
+    "contactTitle": "Contact",
+    "privacy": "Privacy notice",
+    "rights": "All rights reserved.",
+    "madeIn": "Made in Chiapas, Mexico."
+  },
+  "media": {
+    "placeholderLabel": "Image",
+    "imagineAlt": {
+      "historia": "Mountain coffee landscape in Chiapas",
+      "arabica": "Green Arabica coffee in a jute sack",
+      "robusta": "Green Robusta coffee on wood",
+      "diferenciadores": "Stacked coffee sacks in a warehouse"
+    }
+  }
+}

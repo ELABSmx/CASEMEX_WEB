@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "title": "CASEMEX — Café verde mexicano de exportación",
+    "description": "Comercializadora y exportadora de café verde mexicano desde 1996. Empresa familiar de Chiapas que abastece a traders, exportadoras, tostadores y marcas con volumen constante, calidad pareja y trazabilidad.",
+    "ogAlt": "CASEMEX — café verde mexicano, granos saliendo de un costal de yute"
+  },
+  "nav": {
+    "home": "Inicio",
+    "company": "Empresa",
+    "process": "Proceso",
+    "products": "Productos",
+    "certifications": "Certificaciones",
+    "regions": "Regiones",
+    "contact": "Contacto",
+    "cta": "Cotizar",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "skip": "Saltar al contenido",
+    "langToggle": "Cambiar idioma a inglés"
+  },
+  "hero": {
+    "kicker": "Café verde mexicano de exportación · Desde 1996",
+    "headline": "El café con el que siempre cumples",
+    "subhead": "Empresa familiar chiapaneca. Damos a tostadores, marcas y exportadores el volumen constante, la calidad pareja y las entregas a tiempo que su negocio necesita.",
+    "ctaPrimary": "Solicitar cotización",
+    "ctaSecondary": "Conocer la empresa",
+    "trust": ["30 años", "Tercera generación", "100% mexicano", "Café certificado"]
+  },
+  "historia": {
+    "title": "Una empresa familiar, chiapaneca, desde 1996",
+    "lead": "Tres generaciones haciendo lo mismo: leer cada cosecha y responder por lo que entregamos.",
+    "p1": "Empezamos en 1996, en Chiapas, comprando café a los productores de la región y aprendiendo a leer cada cosecha. Tres décadas después seguimos siendo una empresa familiar, ahora en su tercera generación, con más de 100 colaboradores y un equipo agrícola que trabaja en campo, al lado de quien siembra.",
+    "p2": "Hoy somos uno de los comercializadores de café más grandes de México, pero la forma de trabajar no cambió: decisiones cercanas, trato directo y la responsabilidad de responder por cada lote que sale de nuestras manos.",
+    "facts": [
+      { "value": "1996", "label": "Año de fundación" },
+      { "value": "3ª", "label": "Generación al frente" },
+      { "value": "+100", "label": "Colaboradores" },
+      { "value": "Chiapas", "label": "Tierra de origen" }
+    ]
+  },
+  "proceso": {
+    "title": "De la montaña al mundo",
+    "lead": "Acompañamos el café en cada etapa, del cafetal de altura al costal listo para exportar.",
+    "steps": [
+      { "n": "01", "title": "La altura", "caption": "El café de Chiapas crece en pendientes altas, donde el grano madura despacio y gana carácter." },
+      { "n": "02", "title": "El productor", "caption": "Nuestro equipo agrícola acompaña a cientos de productores en su parcela, cosecha tras cosecha." },
+      { "n": "03", "title": "El beneficio", "caption": "Lavados, naturales y preparaciones europea y americana: cada perfil se trabaja con un método definido." },
+      { "n": "04", "title": "La consolidación", "caption": "Reunimos lotes de muchas manos en volúmenes parejos, con trazabilidad de origen." },
+      { "n": "05", "title": "El café verde", "caption": "Sale clasificado, ensacado y listo para tostadores y exportadores de cualquier país." }
+    ]
+  },
+  "productos": {
+    "title": "Café verde de origen mexicano",
+    "lead": "Grados y preparaciones para cada destino. La diferencia la hace la ficha técnica, no la foto.",
+    "arabica": {
+      "name": "Arábica",
+      "intro": "Nuestro grano principal, cultivado en altura. Disponible en distintos grados y preparaciones según el destino y el perfil que necesites.",
+      "grades": [
+        "Estricta altura (SHG) y Altura",
+        "Naturales y Lavados — Prime y Good",
+        "Preparación Europea y Americana",
+        "Especialidad 80+ SCA con trazabilidad",
+        "Convencional"
+      ],
+      "cta": "Descargar ficha técnica (PDF)"
+    },
+    "robusta": {
+      "name": "Robusta",
+      "intro": "Robusta mexicana para blends y volumen, en versión convencional y certificada. Mayor cuerpo y contenido de cafeína.",
+      "grades": ["Convencional", "Certificado"],
+      "cta": "Descargar ficha técnica (PDF)"
+    },
+    "note": "Las fichas técnicas con perfil, altura y certificación están disponibles en PDF para cada producto."
+  },
+  "certificaciones": {
+    "title": "Certificaciones que respaldan cada lote",
+    "lead": "Trabajamos con café certificado bajo los estándares que tus clientes reconocen.",
+    "items": [
+      { "code": "USDA", "name": "USDA Organic", "blurb": "Café cultivado sin agroquímicos de síntesis, bajo el estándar orgánico de Estados Unidos." },
+      { "code": "OCIA", "name": "OCIA", "blurb": "Certificación orgánica internacional que verifica el manejo del cultivo desde la parcela." },
+      { "code": "4C", "name": "4C", "blurb": "Estándar de base que confirma prácticas sostenibles en lo social, ambiental y económico." },
+      { "code": "FT", "name": "Fair Trade", "blurb": "Comercio justo: condiciones y precios que sostienen el ingreso de los productores." }
+    ],
+    "note": "Mostramos los sellos oficiales una vez verificados con el cliente; nunca un logo aproximado."
+  },
+  "diferenciadores": {
+    "title": "Lo que cambia cuando trabajas con nosotros",
+    "lead": "Tu mayor riesgo es no recibir el café que necesitas. Aquí lo convertimos en certeza.",
+    "blocks": [
+      { "title": "Volumen que no se cae", "body": "Una red consolidada de cientos de productores significa que el volumen está disponible cuando lo necesitas, no solo en buena cosecha." },
+      { "title": "La misma calidad, lote tras lote", "body": "Clasificamos y controlamos cada entrega para que el perfil que aprobaste sea el que recibas la siguiente vez." },
+      { "title": "Sabes de dónde viene", "body": "Cada lote llega con trazabilidad de origen y la certificación que tu mercado exige." },
+      { "title": "Un solo interlocutor, no cientos", "body": "En lugar de coordinar con cientos de productores dispersos, tratas con una empresa que decide rápido y responde por su palabra." }
+    ]
+  },
+  "origenes": {
+    "title": "Nuestras regiones en Chiapas",
+    "lead": "Trabajamos las zonas cafetaleras del estado, cada una con su altura, su clima y su perfil de taza.",
+    "mapTitle": "Mapa de las zonas cafetaleras de Chiapas donde CASEMEX abastece café verde",
+    "regions": [
+      { "name": "Soconusco", "note": "Costa del Pacífico, café de altura junto a la Sierra Madre." },
+      { "name": "Sierra Madre", "note": "Altas pendientes y clima fresco, perfiles limpios y dulces." },
+      { "name": "Frailesca", "note": "Valles y laderas centrales con producción de volumen." },
+      { "name": "Norte / Selva", "note": "Zonas húmedas del norte del estado, café de sombra." }
+    ],
+    "note": "Confirmaremos contigo las zonas exactas y sus perfiles antes de cada operación."
+  },
+  "contacto": {
+    "title": "Solicita tu cotización",
+    "lead": "Cuéntanos qué café necesitas y te respondemos con una propuesta. También puedes escribirnos por WhatsApp.",
+    "form": {
+      "name": "Nombre",
+      "company": "Empresa",
+      "email": "Correo electrónico",
+      "phone": "Teléfono (opcional)",
+      "country": "País de destino",
+      "product": "Producto de interés",
+      "productOptions": { "arabica": "Arábica", "robusta": "Robusta", "both": "Ambos", "specialty": "Especialidad 80+ SCA" },
+      "grade": "Grado o perfil",
+      "volume": "Volumen estimado",
+      "volumePlaceholder": "Ej. sacos / toneladas",
+      "certification": "Certificación requerida",
+      "certOptions": { "none": "Ninguna", "usda": "USDA Organic", "ocia": "OCIA", "fourc": "4C", "fairtrade": "Fair Trade", "other": "Otra" },
+      "message": "Mensaje",
+      "submit": "Enviar solicitud",
+      "sending": "Enviando…",
+      "successTitle": "Recibimos tu solicitud.",
+      "successBody": "Te respondemos pronto, en horario hábil.",
+      "errorTitle": "No pudimos enviar tu solicitud.",
+      "errorBody": "Inténtalo de nuevo o escríbenos por WhatsApp.",
+      "required": "Este campo es obligatorio.",
+      "invalidEmail": "Escribe un correo válido.",
+      "tooLong": "El texto es demasiado largo."
+    },
+    "whatsapp": "Escribir por WhatsApp",
+    "email": "eduardo.casemex@gmail.com",
+    "locationLabel": "Ubicación",
+    "location": "Chiapas, México",
+    "hours": "Respondemos en horario hábil."
+  },
+  "footer": {
+    "legalName": "Cafés y Semillas de México S.A. de C.V.",
+    "tagline": "Todo es café.",
+    "blurb": "Comercializadora y exportadora de café verde mexicano desde 1996.",
+    "navTitle": "Navegación",
+    "contactTitle": "Contacto",
+    "privacy": "Aviso de privacidad",
+    "rights": "Todos los derechos reservados.",
+    "madeIn": "Hecho en Chiapas, México."
+  },
+  "media": {
+    "placeholderLabel": "Imagen",
+    "imagineAlt": {
+      "historia": "Paisaje cafetalero de montaña en Chiapas",
+      "arabica": "Café verde Arábica en costal de yute",
+      "robusta": "Café verde Robusta sobre madera",
+      "diferenciadores": "Costales de café apilados en bodega"
+    }
+  }
+}

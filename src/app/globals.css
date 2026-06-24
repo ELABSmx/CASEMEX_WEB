@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+/* ===========================================================================
+   CASEMEX — "Bodega" design tokens (OKLCH).
+   Single source of truth, mirrored from DESIGN.md / .impeccable/design.json.
+   Neutrals are warm-tinted (hue ~75-88, chroma >= 0.014) — never pure gray.
+   =========================================================================== */
+@theme {
+  /* Surfaces & structure */
+  --color-bg: oklch(0.2 0.014 72); /* espresso-900 page bg */
+  --color-surface: oklch(0.236 0.02 74); /* espresso-800 */
+  --color-raised: oklch(0.27 0.024 73); /* bark-700 */
+  --color-border: oklch(0.422 0.043 73); /* bark-500 */
+  --color-hairline: oklch(0.31 0.031 73); /* bark-600 */
+
+  /* Brand */
+  --color-brand: oklch(0.441 0.065 142); /* forest green */
+  --color-brand-strong: oklch(0.52 0.08 143);
+  --color-sage: oklch(0.761 0.043 128); /* light-on-dark accent text */
+  --color-gold: oklch(0.73 0.112 85); /* accent (10%) */
+  --color-gold-strong: oklch(0.78 0.12 84);
+  --color-cherry: oklch(0.47 0.143 37); /* rare warm spark */
+
+  /* Text */
+  --color-text: oklch(0.926 0.023 87); /* bone-100, never pure white */
+  --color-text-muted: oklch(0.683 0.045 77); /* sand-400 */
+  --color-ink: oklch(0.244 0.027 153); /* forest ink for bone panels */
+
+  /* Inverted (bone) surface for long-form reading panels */
+  --color-invert: oklch(0.953 0.017 88); /* bone-50 */
+  --color-invert-surface: oklch(0.926 0.023 87);
+
+  /* Warm-tinted neutral ramp */
+  --color-neutral-50: oklch(0.953 0.017 88);
+  --color-neutral-100: oklch(0.926 0.023 87);
+  --color-neutral-200: oklch(0.853 0.034 84);
+  --color-neutral-300: oklch(0.789 0.044 81);
+  --color-neutral-400: oklch(0.683 0.045 77);
+  --color-neutral-500: oklch(0.56 0.046 75);
+  --color-neutral-600: oklch(0.422 0.043 73);
+  --color-neutral-700: oklch(0.31 0.031 73);
+  --color-neutral-800: oklch(0.236 0.02 74);
+  --color-neutral-900: oklch(0.2 0.014 72);
+  --color-neutral-950: oklch(0.182 0.014 72);
+
+  /* Semantic (tuned for dark ground) */
+  --color-success: oklch(0.74 0.1 150);
+  --color-warning: oklch(0.78 0.11 78);
+  --color-danger: oklch(0.66 0.12 38);
+  --color-info: oklch(0.72 0.05 232);
+
+  /* Typography — families bound to next/font variables in layout.tsx */
+  --font-display: var(--font-bitter), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-mulish), system-ui, -apple-system, sans-serif;
+
+  --text-caption: 0.833rem;
+  --text-caption--line-height: 1.4;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.6;
+  --text-h3: clamp(1.5rem, 1.25rem + 1.1vw, 2rem);
+  --text-h3--line-height: 1.25;
+  --text-h2: clamp(1.95rem, 1.5rem + 2vw, 2.75rem);
+  --text-h2--line-height: 1.2;
+  --text-h1: clamp(2.5rem, 1.8rem + 3.2vw, 3.75rem);
+  --text-h1--line-height: 1.12;
+  --text-hero: clamp(2.75rem, 1.9rem + 3.2vw, 4rem);
+  --text-hero--line-height: 1.08;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Warm-tinted shadows */
+  --shadow-sm: 0 1px 2px oklch(0.18 0.02 72 / 0.4);
+  --shadow-md: 0 4px 16px oklch(0.14 0.02 72 / 0.45);
+  --shadow-lg: 0 18px 48px oklch(0.1 0.02 72 / 0.55);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 360ms;
+}
+
+/* Reusable measure tokens (Tailwind reads these for max-w-measure / max-w-lead) */
+@theme {
+  --container-measure: 65ch;
+  --container-lead: 54ch;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --ring-focus: 0 0 0 3px oklch(0.73 0.112 85 / 0.55);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor targets so the sticky header doesn't cover headings. */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-text);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Light-on-dark compensation: slightly looser tracking for bone text. */
+  p,
+  li {
+    letter-spacing: 0.005em;
+  }
+
+  ::selection {
+    background-color: oklch(0.73 0.112 85 / 0.3);
+    color: var(--color-text);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--ring-focus);
+    border-radius: var(--radius-sm);
+  }
+
+  /* Tasteful default for any media */
+  img,
+  video,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Bone panel for sustained reading (inverts the dark ground). */
+  .panel-invert {
+    background-color: var(--color-invert);
+    color: var(--color-ink);
+  }
+  .panel-invert :is(h1, h2, h3, h4) {
+    color: var(--color-ink);
+  }
+
+  /* Reveal primitives — GSAP sets these visible; this is the no-JS / pre-anim state. */
+  [data-reveal],
+  [data-reveal-item] {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "name": "CASEMEX — Bodega",
+  "mode": "dark",
+  "source": "Tokens sampled from hero.mp4 grade; mirrored in DESIGN.md and src/app/globals.css @theme.",
+  "color": {
+    "brand": {
+      "espresso-950": "oklch(0.182 0.014 72)",
+      "espresso-900": "oklch(0.200 0.014 72)",
+      "espresso-800": "oklch(0.236 0.020 74)",
+      "bark-700": "oklch(0.270 0.024 73)",
+      "bark-600": "oklch(0.310 0.031 73)",
+      "bark-500": "oklch(0.422 0.043 73)",
+      "forest": "oklch(0.441 0.065 142)",
+      "sage": "oklch(0.761 0.043 128)",
+      "gold": "oklch(0.730 0.112 85)",
+      "cherry": "oklch(0.470 0.143 37)"
+    },
+    "neutral": {
+      "50": "oklch(0.953 0.017 88)",
+      "100": "oklch(0.926 0.023 87)",
+      "200": "oklch(0.853 0.034 84)",
+      "300": "oklch(0.789 0.044 81)",
+      "400": "oklch(0.683 0.045 77)",
+      "500": "oklch(0.560 0.046 75)",
+      "600": "oklch(0.422 0.043 73)",
+      "700": "oklch(0.310 0.031 73)",
+      "800": "oklch(0.236 0.020 74)",
+      "900": "oklch(0.200 0.014 72)",
+      "950": "oklch(0.182 0.014 72)"
+    },
+    "surface": {
+      "bg": "oklch(0.200 0.014 72)",
+      "surface": "oklch(0.236 0.020 74)",
+      "raised": "oklch(0.270 0.024 73)",
+      "invert": "oklch(0.953 0.017 88)"
+    },
+    "text": {
+      "primary": "oklch(0.926 0.023 87)",
+      "secondary": "oklch(0.761 0.043 128)",
+      "muted": "oklch(0.683 0.045 77)",
+      "on-invert": "oklch(0.244 0.027 153)"
+    },
+    "semantic": {
+      "success": "oklch(0.74 0.10 150)",
+      "warning": "oklch(0.78 0.11 78)",
+      "danger": "oklch(0.66 0.12 38)",
+      "info": "oklch(0.72 0.05 232)"
+    }
+  },
+  "typography": {
+    "display": { "fontFamily": "Bitter, Georgia, serif", "weights": [500, 600], "tracking": "-0.01em" },
+    "text": { "fontFamily": "Mulish, system-ui, sans-serif", "weights": [400, 600] },
+    "measure": "65ch"
+  },
+  "spacing": { "base": 4, "scale": [4, 8, 12, 16, 24, 32, 48, 64, 80, 96, 128] },
+  "rounded": { "sm": "4px", "md": "8px", "lg": "12px", "xl": "16px", "pill": "9999px" },
+  "shadow": {
+    "sm": "0 1px 2px oklch(0.20 0.02 73 / 0.10)",
+    "md": "0 4px 12px oklch(0.20 0.02 73 / 0.12)",
+    "lg": "0 12px 32px oklch(0.18 0.02 72 / 0.18)",
+    "ring-focus": "0 0 0 3px oklch(0.730 0.112 85 / 0.55)"
+  },
+  "motion": {
+    "duration": { "fast": 120, "base": 220, "slow": 360, "hero": 500 },
+    "ease": { "out": "cubic-bezier(0.22,1,0.36,1)", "inout": "cubic-bezier(0.65,0,0.35,1)" },
+    "reducedMotion": "respected"
+  },
+  "a11y": { "contrastBody": ">=4.5", "contrastLarge": ">=3", "focusRing": "visible", "touchTarget": "44px" }
+}
