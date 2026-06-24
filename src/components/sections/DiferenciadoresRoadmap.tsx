@@ -7,6 +7,10 @@ import { cn } from "@/lib/utils";
 
 type Block = { title: string; body: string };
 
+const GOLD = "#c8a24e";
+const DARK = "#16110b";
+const GOLD_DIM = "rgba(200,162,78,0.45)";
+
 const ICONS: React.ReactNode[] = [
   <>
     <rect x="4" y="14" width="16" height="5.2" rx="1.6" />
@@ -31,21 +35,23 @@ const ICONS: React.ReactNode[] = [
   </>,
 ];
 
+// Node screen positions (%) and the matching path in a 1200×1000 viewBox.
 const NODES = [
   { x: 34, y: 12, side: "left" as const },
   { x: 66, y: 38, side: "right" as const },
   { x: 34, y: 64, side: "left" as const },
   { x: 66, y: 90, side: "right" as const },
 ];
-const PATH = "M34 12 C34 24 66 26 66 38 C66 50 34 52 34 64 C34 76 66 78 66 90";
-// Timeline position (0-1) where the growing line reaches each node → lights it.
-const NODE_AT = [0.03, 0.33, 0.64, 0.93];
+const PATH = "M408 120 C408 250 792 250 792 380 C792 510 408 510 408 640 C408 770 792 770 792 900";
+// Draw-progress (0-1) at which the line head reaches each node → fills its badge.
+const NODE_AT = [0.04, 0.37, 0.69, 0.97];
 
 function IconBubble({ i }: { i: number }) {
   return (
     <span
       data-badge={i}
-      className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/50 bg-neutral-950 text-gold"
+      className="flex h-16 w-16 items-center justify-center rounded-full border-2"
+      style={{ borderColor: GOLD_DIM, backgroundColor: DARK, color: GOLD }}
     >
       <svg
         viewBox="0 0 24 24"
@@ -92,43 +98,50 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
   useGSAP(
     () => {
       if (!root.current) return;
-      const path = root.current.querySelector("[data-road]");
+      const path = root.current.querySelector<SVGPathElement>("[data-road]");
       const vline = root.current.querySelector("[data-road-fallback]");
-      const line = path ?? vline;
       const groups = blocks.map((_, i) => ({
         content: root.current!.querySelector(`[data-content="${i}"]`),
         badge: root.current!.querySelector(`[data-badge="${i}"]`),
       }));
       const mm = gsap.matchMedia();
 
+      const fillBadge = { backgroundColor: GOLD, color: DARK, borderColor: GOLD, scale: 1.06 };
+      const dimBadge = { backgroundColor: DARK, color: GOLD, borderColor: GOLD_DIM, scale: 0.92 };
+
       mm.add(MM.motionOk, () => {
-        // Off state: line undrawn, stations dimmed.
-        if (path) gsap.set(path, { strokeDashoffset: 1 });
+        // Continuous draw via real path length (no dash artifacts).
+        if (path) {
+          const len = path.getTotalLength();
+          gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
+        }
         if (vline) gsap.set(vline, { scaleY: 0, transformOrigin: "top center" });
         groups.forEach((g) => {
-          gsap.set(g.content, { autoAlpha: 0.35 });
-          gsap.set(g.badge, { autoAlpha: 0.4, scale: 0.9 });
+          gsap.set(g.content, { autoAlpha: 0.4 });
+          gsap.set(g.badge, dimBadge);
         });
 
-        // Scrubbed to scroll: the line's head tracks the scroll through the section.
         const tl = gsap.timeline({
-          scrollTrigger: { trigger: root.current, start: "top 75%", end: "bottom 60%", scrub: 0.6 },
+          scrollTrigger: { trigger: root.current, start: "top 78%", end: "bottom 62%", scrub: 0.6 },
         });
-        if (line) tl.to(line, path ? { strokeDashoffset: 0, ease: "none" } : { scaleY: 1, ease: "none" }, 0);
-        // Light each station as the line reaches it.
+        if (path) tl.to(path, { strokeDashoffset: 0, ease: "none", duration: 1 }, 0);
+        if (vline) tl.to(vline, { scaleY: 1, ease: "none", duration: 1 }, 0);
         groups.forEach((g, i) => {
           const at = NODE_AT[i] ?? 0;
-          tl.to(g.content, { autoAlpha: 1, ease: "power1.out", duration: 0.08 }, at);
-          tl.to(g.badge, { autoAlpha: 1, scale: 1.06, ease: "back.out(2)", duration: 0.14 }, at);
+          // Anchor the fill to FINISH as the line head reaches the circle.
+          const fillDur = 0.16;
+          const fillAt = Math.max(0, at - fillDur);
+          tl.to(g.content, { autoAlpha: 1, ease: "power1.out", duration: 0.06 }, Math.max(0, at - 0.06));
+          tl.to(g.badge, { ...fillBadge, ease: "back.out(1.7)", duration: fillDur }, fillAt);
         });
       });
 
       mm.add(MM.reduce, () => {
-        if (path) gsap.set(path, { strokeDashoffset: 0 });
+        if (path) gsap.set(path, { strokeDasharray: "none", strokeDashoffset: 0 });
         if (vline) gsap.set(vline, { scaleY: 1 });
         groups.forEach((g) => {
           gsap.set(g.content, { autoAlpha: 1 });
-          gsap.set(g.badge, { autoAlpha: 1, scale: 1 });
+          gsap.set(g.badge, { ...dimBadge, scale: 1, borderColor: GOLD });
         });
       });
     },
@@ -138,24 +151,19 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
   return (
     <div ref={root} className="mt-14">
       {organic ? (
-        <div className="relative min-h-[880px] text-gold">
-          <svg
-            className="absolute inset-0 h-full w-full"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
+        <div className="relative aspect-[6/5] text-gold">
+          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1200 1000" aria-hidden="true">
+            {/* Faint planned route */}
+            <path d={PATH} fill="none" stroke="currentColor" strokeOpacity={0.13} strokeWidth={3.5} strokeLinecap="round" />
+            {/* Bright route that grows with scroll */}
             <path
               data-road
               d={PATH}
               fill="none"
               stroke="currentColor"
-              strokeOpacity={0.55}
-              strokeWidth={2.5}
+              strokeOpacity={0.85}
+              strokeWidth={3.5}
               strokeLinecap="round"
-              vectorEffect="non-scaling-stroke"
-              pathLength={1}
-              strokeDasharray={1}
             />
           </svg>
 
