@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import HeroMedia from "@/components/media/HeroMedia";
-import ImagotipoVertical from "@/components/brand/ImagotipoVertical";
+import Isotipo from "@/components/brand/Isotipo";
 
 /** Hero inner content (media + scrim + text). Fills its parent layer. */
 export default function HeroContent() {
@@ -22,12 +22,10 @@ export default function HeroContent() {
       />
 
       <div className="mx-auto flex w-full max-w-3xl flex-col items-center">
-        <ImagotipoVertical className="h-20 text-neutral-50 sm:h-24 md:h-28" />
-        <p className="mt-7 flex items-center gap-2.5 text-caption font-semibold tracking-wide text-neutral-50">
-          <span className="h-2 w-2 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-          {t("kicker")}
-        </p>
-        <h1 className="mt-5 font-display text-hero font-semibold text-text">
+        <span aria-hidden="true" className="block h-14 text-neutral-50 sm:h-16 md:h-20">
+          <Isotipo />
+        </span>
+        <h1 className="mt-7 font-display text-hero font-semibold text-text">
           {t("headline")}
         </h1>
         <p className="mt-6 max-w-xl text-lead text-neutral-200">{t("subhead")}</p>
