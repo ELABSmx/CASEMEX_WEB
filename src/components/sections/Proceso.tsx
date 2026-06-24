@@ -129,7 +129,7 @@ export default function Proceso() {
               )}
             >
               <Image
-                src={`/images/proceso/${step.n}.jpg`}
+                src={`/images/M${i + 1}.png`}
                 alt={`${step.title} — ${step.caption}`}
                 fill
                 sizes="(min-width: 768px) 34vw, 100vw"

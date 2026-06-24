@@ -31,8 +31,11 @@ yarn-error.log*
 *.tsbuildinfo
 
 # editor / tooling scratch
-/.impeccable/cache
 poster-cand-*.jpg
+
+# impeccable: keep only the design tokens; ignore caches/local config
+/.impeccable/*
+!/.impeccable/design.json
 
 # AI-assistant tooling (skill installs, reinstalled per machine — not the site)
 /.agents/

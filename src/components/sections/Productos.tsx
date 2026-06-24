@@ -73,19 +73,19 @@ export default function Productos() {
 
         <div
           data-reveal-group
-          className="mt-12 grid gap-6 lg:grid-cols-5"
+          className="mt-12 grid gap-6 md:grid-cols-2"
         >
-          {/* Arábica — featured, wider */}
+          {/* Arábica */}
           <article
             data-reveal-item
-            className="flex flex-col overflow-hidden rounded-lg border border-hairline bg-surface lg:col-span-3"
+            className="flex flex-col overflow-hidden rounded-lg border border-hairline bg-surface"
           >
             <SmartImage
-              src="/images/productos/arabica.jpg"
+              src="/images/arabica.png"
               alt={m("imagineAlt.arabica")}
-              aspect="16 / 9"
+              aspect="3 / 2"
               rounded={false}
-              sizes="(min-width: 1024px) 44vw, 100vw"
+              sizes="(min-width: 768px) 50vw, 100vw"
               placeholderLabel={m("placeholderLabel")}
             />
             <div className="flex flex-1 flex-col p-7 sm:p-9">
@@ -98,17 +98,17 @@ export default function Productos() {
             </div>
           </article>
 
-          {/* Robusta — secondary */}
+          {/* Robusta */}
           <article
             data-reveal-item
-            className="flex flex-col overflow-hidden rounded-lg border border-hairline bg-surface lg:col-span-2"
+            className="flex flex-col overflow-hidden rounded-lg border border-hairline bg-surface"
           >
             <SmartImage
-              src="/images/productos/robusta.jpg"
+              src="/images/robusta.png"
               alt={m("imagineAlt.robusta")}
-              aspect="16 / 9"
+              aspect="3 / 2"
               rounded={false}
-              sizes="(min-width: 1024px) 30vw, 100vw"
+              sizes="(min-width: 768px) 50vw, 100vw"
               placeholderLabel={m("placeholderLabel")}
             />
             <div className="flex flex-1 flex-col p-7 sm:p-9">
