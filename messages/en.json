@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "CASEMEX — Mexican green coffee for export",
-    "description": "Mexican green coffee trader and exporter since 1996. A family-run company from Chiapas supplying traders, exporters, roasters and brands with steady volume, consistent quality and traceability.",
+    "title": "CASEMEX — Industrial supplier of Mexican green coffee",
+    "description": "Industrial supplier of Mexican green coffee since 1996. We supply the food industry, roasters and importers with large-scale volume, consistent quality, certified traceability and food safety (Global Markets), and global logistics.",
     "ogAlt": "CASEMEX — Mexican green coffee, beans pouring from a jute sack"
   },
   "nav": {
@@ -9,7 +9,9 @@
     "company": "Company",
     "process": "Process",
     "products": "Products",
+    "quality": "Grades",
     "certifications": "Certifications",
+    "why": "Why CASEMEX",
     "regions": "Regions",
     "contact": "Contact",
     "cta": "Get a quote",
@@ -19,23 +21,28 @@
     "langToggle": "Switch language to Spanish"
   },
   "hero": {
-    "kicker": "Mexican green coffee for export · Since 1996",
-    "headline": "The coffee that lets you deliver, every time",
-    "subhead": "A family company from Chiapas. We give roasters, brands and exporters the steady volume, consistent quality and on-time delivery their business depends on.",
+    "kicker": "Industrial supplier of green coffee · Since 1996",
+    "slogan": "Todo es café.",
+    "headline": "Green coffee at industrial scale, that lets you deliver every time",
+    "subhead": "A family company from Chiapas with 30 years supplying large-scale industry. We give the food industry, roasters and importers the large-scale volume, consistent quality and global logistics their operation depends on.",
     "ctaPrimary": "Request a quote",
     "ctaSecondary": "About the company",
-    "trust": ["30 years", "Third generation", "100% Mexican", "Certified coffee"]
+    "trust": ["30 years", "Global coverage", "Certified quality", "Large-scale industry"]
   },
   "historia": {
     "title": "A family-run company from Chiapas, since 1996",
-    "lead": "Three generations doing the same thing: reading every harvest and standing behind what we ship.",
-    "p1": "We started in 1996, in Chiapas, buying coffee from the region's growers and learning to read each harvest. Three decades later we are still a family business, now in its third generation, with more than 100 people on the team and an agronomy crew working in the field, alongside the people who grow the coffee.",
-    "p2": "Today we are one of Mexico's largest coffee traders, but the way we work has not changed: decisions made close to the source, direct relationships, and the responsibility of standing behind every lot we ship.",
+    "lead": "Three generations doing the same thing: reading every harvest and standing behind every lot we ship.",
+    "p1": "We started in 1996, in Chiapas, buying coffee from the region's growers and learning to read each harvest. Thirty years later we are still a family business, now in its third generation, with more than 100 people on the team and an agronomy crew working in the field, alongside the people who grow the coffee.",
+    "p2": "That is 30 years of experience backed by installed capacity and logistics that guarantee a sustainable supply for any industry requirement. We serve everyone from the specialty roaster to large industry, with global coverage and logistics we manage end to end.",
+    "misionTitle": "Mission",
+    "mision": "",
+    "visionTitle": "Vision",
+    "vision": "",
     "facts": [
-      { "value": "1996", "label": "Year founded" },
-      { "value": "3rd", "label": "Generation leading" },
-      { "value": "100+", "label": "Team members" },
-      { "value": "Chiapas", "label": "Home region" }
+      { "value": "30 years", "label": "of experience" },
+      { "value": "3rd", "label": "generation leading" },
+      { "value": "Global", "label": "coverage" },
+      { "value": "100+", "label": "team members" }
     ]
   },
   "proceso": {
@@ -66,11 +73,26 @@
     },
     "robusta": {
       "name": "Robusta",
-      "intro": "Mexican Robusta for blends and volume, in conventional and certified versions. More body and caffeine.",
-      "grades": ["Conventional", "Certified"],
+      "intro": "Mexican Robusta for blends, soluble coffee and espresso: more body and caffeine. The variety most in demand from industry, available in steady volume.",
+      "grades": ["Conventional"],
       "cta": "Download spec sheet (PDF)"
     },
     "note": "Spec sheets with profile, altitude and certification are available as a PDF for each product."
+  },
+  "calidades": {
+    "title": "Grades and reference parameters",
+    "lead": "Classification of green / gold coffee from Chiapas. Final parameters are set by contract according to your requirement.",
+    "columns": ["Grade", "% stain", "Species / Process", "Altitude (Chiapas)", "Cup (SCA)", "Profile / Use"],
+    "rows": [
+      { "calidad": "Specialty (Strictly High Grown)", "mancha": "≤ 5% (by contract)", "especie": "Washed Arabica", "altitud": "~1,200 to 1,700 masl", "taza": "80 to 86 points", "uso": "Bright, complex acidity, natural sweetness. Specialty roasters and microlots." },
+      { "calidad": "European High Grown", "mancha": "5%", "especie": "Washed Arabica", "altitud": "~900 to 1,400 masl", "taza": "Commercial", "uso": "Very clean, with notable acidity and body. Demanding European market." },
+      { "calidad": "OPL (Washed Prime Gold)", "mancha": "7.5%", "especie": "Washed Arabica", "altitud": "~600 to 900 masl", "taza": "Commercial", "uso": "Good profile, with medium acidity and body. High quality." },
+      { "calidad": "Washed Gold", "mancha": "10%", "especie": "Washed Arabica", "altitud": "~600 to 900 masl", "taza": "Commercial", "uso": "Clean cup with defined acidity. Industry and commercial roasters." },
+      { "calidad": "Natural Gold Robusta", "mancha": "16%", "especie": "Natural Robusta", "altitud": "Warm zones (< 600 masl)", "taza": "Commercial", "uso": "More body, intense notes and more caffeine. Blends, soluble and espresso." },
+      { "calidad": "Natural Gold Arabica", "mancha": "20%", "especie": "Natural Arabica", "altitud": "Mid altitudes", "taza": "Commercial", "uso": "Body, sweetness and fruity notes from the natural process. Commercial and industrial." }
+    ],
+    "note": "Final parameters (% stain, screen size and defect count) are set by contract per client. Specialty coffee = 80+ SCA points. Altitude ranges are general market references.",
+    "cta": "Download grades table (PDF)"
   },
   "certificaciones": {
     "title": "Certifications that back every lot",
@@ -78,20 +100,36 @@
     "items": [
       { "code": "USDA", "name": "USDA Organic", "blurb": "Coffee grown without synthetic agrochemicals, under the United States organic standard." },
       { "code": "OCIA", "name": "OCIA", "blurb": "International organic certification that verifies crop management from the field." },
-      { "code": "4C", "name": "4C", "blurb": "A baseline standard confirming sustainable social, environmental and economic practices." },
       { "code": "FT", "name": "Fair Trade", "blurb": "Fair trade: terms and prices that sustain growers' income." }
     ],
     "note": "We display the official seals once verified with the client; never an approximate logo."
   },
   "diferenciadores": {
-    "title": "What changes when you work with us",
-    "lead": "Your biggest risk is not getting the coffee you need. Here we turn it into certainty.",
+    "title": "Why work with CASEMEX?",
+    "lead": "Your biggest risk is not getting the coffee you need, at the quality and on the timeline your operation demands. We are the industrial supplier that turns it into certainty.",
     "blocks": [
-      { "title": "Volume you can count on", "body": "A consolidated network of hundreds of growers means the volume is there when you need it, not only in a good harvest." },
-      { "title": "The same quality, lot after lot", "body": "We grade and check every shipment so the profile you approved is the one you get next time." },
-      { "title": "You know where it comes from", "body": "Every lot arrives with traceability to origin and the certification your market requires." },
-      { "title": "One partner, not hundreds", "body": "Instead of coordinating with hundreds of scattered growers, you deal with one company that decides fast and stands by its word." }
-    ]
+      { "title": "Supply at industrial scale", "body": "A consolidated network of hundreds of growers and installed capacity guarantee a sustainable supply, not only in a good harvest." },
+      { "title": "Consistent quality and an in-house lab", "body": "We map samples and cup every lot in our own laboratory, so the profile you approved is the one you get next time." },
+      { "title": "Certified traceability and food safety", "body": "Processes accredited by Global Markets (GFSI): every lot arrives with traceability to origin, certified growers and the certification your market requires." },
+      { "title": "Global logistics we manage ourselves", "body": "Worldwide reach. We deliver lots or containers to the destination you need, or FOB at port as you prefer." }
+    ],
+    "accreditation": {
+      "title": "Processes accredited by Global Markets (GFSI)",
+      "intro": "Global Markets (GFSI) is the endorsement that guarantees our processes meet international food safety and traceability standards, giving large industry the confidence to work with us.",
+      "items": [
+        "Traceability",
+        "Food safety",
+        "Quality to supply large industry",
+        "Certified growers",
+        "Sample mapping",
+        "Cupping of every lot",
+        "Reliable logistics"
+      ]
+    },
+    "sectors": {
+      "title": "Sectors we serve",
+      "items": ["Food industry", "Roasters", "Importers"]
+    }
   },
   "origenes": {
     "title": "Our regions in Chiapas",
@@ -120,7 +158,7 @@
       "volume": "Estimated volume",
       "volumePlaceholder": "e.g. bags / tons",
       "certification": "Certification needed",
-      "certOptions": { "none": "None", "usda": "USDA Organic", "ocia": "OCIA", "fourc": "4C", "fairtrade": "Fair Trade", "other": "Other" },
+      "certOptions": { "none": "None", "usda": "USDA Organic", "ocia": "OCIA", "fairtrade": "Fair Trade", "other": "Other" },
       "message": "Message",
       "submit": "Send request",
       "sending": "Sending…",
@@ -154,7 +192,8 @@
       "historia": "Hands passing green coffee from one generation to the next",
       "arabica": "Green Arabica coffee in a jute sack",
       "robusta": "Green Robusta coffee on wood",
-      "diferenciadores": "Stacked coffee sacks in a warehouse"
+      "diferenciadores": "Stacked coffee sacks in a warehouse",
+      "laboratorio": "CASEMEX quality-control and cupping laboratory"
     }
   }
 }

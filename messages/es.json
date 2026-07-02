@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "CASEMEX — Café verde mexicano de exportación",
-    "description": "Comercializadora y exportadora de café verde mexicano desde 1996. Empresa familiar de Chiapas que abastece a traders, exportadoras, tostadores y marcas con volumen constante, calidad pareja y trazabilidad.",
+    "title": "CASEMEX — Proveedor industrial de café verde mexicano",
+    "description": "Proveedor industrial de café verde mexicano desde 1996. Abastecemos a la industria alimentaria, tostadores e importadores con volumen a gran escala, calidad consistente, trazabilidad e inocuidad certificadas (Global Markets) y logística global.",
     "ogAlt": "CASEMEX — café verde mexicano, granos saliendo de un costal de yute"
   },
   "nav": {
@@ -9,7 +9,9 @@
     "company": "Empresa",
     "process": "Proceso",
     "products": "Productos",
+    "quality": "Calidades",
     "certifications": "Certificaciones",
+    "why": "Por qué CASEMEX",
     "regions": "Regiones",
     "contact": "Contacto",
     "cta": "Cotizar",
@@ -19,23 +21,28 @@
     "langToggle": "Cambiar idioma a inglés"
   },
   "hero": {
-    "kicker": "Café verde mexicano de exportación · Desde 1996",
-    "headline": "El café con el que siempre cumples",
-    "subhead": "Empresa familiar chiapaneca. Damos a tostadores, marcas y exportadores el volumen constante, la calidad pareja y las entregas a tiempo que su negocio necesita.",
+    "kicker": "Proveedor industrial de café verde · Desde 1996",
+    "slogan": "Todo es café.",
+    "headline": "Café verde a escala industrial, con el que siempre cumples",
+    "subhead": "Empresa familiar chiapaneca con 30 años abasteciendo a la gran industria. Damos a la industria alimentaria, tostadores e importadores el volumen a gran escala, la calidad consistente y la logística global que su operación necesita.",
     "ctaPrimary": "Solicitar cotización",
     "ctaSecondary": "Conocer la empresa",
-    "trust": ["30 años", "Tercera generación", "100% mexicano", "Café certificado"]
+    "trust": ["30 años", "Cobertura global", "Calidad certificada", "Gran industria"]
   },
   "historia": {
     "title": "Una empresa familiar, chiapaneca, desde 1996",
-    "lead": "Tres generaciones haciendo lo mismo: leer cada cosecha y responder por lo que entregamos.",
-    "p1": "Empezamos en 1996, en Chiapas, comprando café a los productores de la región y aprendiendo a leer cada cosecha. Tres décadas después seguimos siendo una empresa familiar, ahora en su tercera generación, con más de 100 colaboradores y un equipo agrícola que trabaja en campo, al lado de quien siembra.",
-    "p2": "Hoy somos uno de los comercializadores de café más grandes de México, pero la forma de trabajar no cambió: decisiones cercanas, trato directo y la responsabilidad de responder por cada lote que sale de nuestras manos.",
+    "lead": "Tres generaciones haciendo lo mismo: leer cada cosecha y responder por cada lote que sale de nuestras manos.",
+    "p1": "Empezamos en 1996, en Chiapas, comprando café a los productores de la región y aprendiendo a leer cada cosecha. Treinta años después seguimos siendo una empresa familiar, ahora en su tercera generación, con más de 100 colaboradores y un equipo agrícola que trabaja en campo, al lado de quien siembra.",
+    "p2": "Son 30 años de experiencia respaldados por capacidad instalada y logística que garantizan un abasto sostenible para cualquier requerimiento de la industria. Atendemos desde el tostador de especialidad hasta la gran industria, con cobertura global y una logística que gestionamos nosotros de principio a fin.",
+    "misionTitle": "Misión",
+    "mision": "",
+    "visionTitle": "Visión",
+    "vision": "",
     "facts": [
-      { "value": "1996", "label": "Año de fundación" },
-      { "value": "3ª", "label": "Generación al frente" },
-      { "value": "+100", "label": "Colaboradores" },
-      { "value": "Chiapas", "label": "Tierra de origen" }
+      { "value": "30 años", "label": "de experiencia" },
+      { "value": "3ª", "label": "generación al frente" },
+      { "value": "Global", "label": "cobertura" },
+      { "value": "+100", "label": "colaboradores" }
     ]
   },
   "proceso": {
@@ -66,11 +73,26 @@
     },
     "robusta": {
       "name": "Robusta",
-      "intro": "Robusta mexicana para blends y volumen, en versión convencional y certificada. Mayor cuerpo y contenido de cafeína.",
-      "grades": ["Convencional", "Certificado"],
+      "intro": "Robusta mexicana para blends, café soluble y espresso: mayor cuerpo y contenido de cafeína. La variedad más solicitada por la industria, disponible en volumen constante.",
+      "grades": ["Convencional"],
       "cta": "Descargar ficha técnica (PDF)"
     },
     "note": "Las fichas técnicas con perfil, altura y certificación están disponibles en PDF para cada producto."
+  },
+  "calidades": {
+    "title": "Calidades y parámetros de referencia",
+    "lead": "Clasificación de café verde / oro de origen Chiapas. Los parámetros finales se ajustan a contrato según tu requerimiento.",
+    "columns": ["Calidad", "% mancha", "Especie / Proceso", "Altitud (Chiapas)", "Taza (SCA)", "Perfil / Uso"],
+    "rows": [
+      { "calidad": "Especialidad (Estricta Altura)", "mancha": "≤ 5% (a contrato)", "especie": "Arábica lavado", "altitud": "~1,200 a 1,700 msnm", "taza": "80 a 86 puntos", "uso": "Acidez brillante y compleja, dulzor natural. Tostadores de especialidad y microlotes." },
+      { "calidad": "Altura Europea", "mancha": "5%", "especie": "Arábica lavado", "altitud": "~900 a 1,400 msnm", "taza": "Comercial", "uso": "Muy limpio, con acidez y cuerpo notables. Mercado europeo exigente." },
+      { "calidad": "OPL (Oro Prima Lavado)", "mancha": "7.5%", "especie": "Arábica lavado", "altitud": "~600 a 900 msnm", "taza": "Comercial", "uso": "Buen perfil, con acidez y cuerpo medios. Calidad alta." },
+      { "calidad": "Oro Lavado", "mancha": "10%", "especie": "Arábica lavado", "altitud": "~600 a 900 msnm", "taza": "Comercial", "uso": "Taza limpia con acidez definida. Industria y tostadores comerciales." },
+      { "calidad": "Oro Natural Robusta", "mancha": "16%", "especie": "Robusta natural", "altitud": "Zonas cálidas (< 600 msnm)", "taza": "Comercial", "uso": "Mayor cuerpo, notas intensas y más cafeína. Mezclas, soluble y espresso." },
+      { "calidad": "Oro Natural Árabe", "mancha": "20%", "especie": "Arábica natural", "altitud": "Altitudes medias", "taza": "Comercial", "uso": "Cuerpo, dulzor y notas afrutadas del proceso natural. Comercial e industrial." }
+    ],
+    "note": "Los parámetros finales (% de mancha, tamaño de zaranda y número de defectos) se ajustan a contrato según cada cliente. Café de especialidad = 80+ puntos SCA. Los rangos de altitud son referencias generales de mercado.",
+    "cta": "Descargar tabla de calidades (PDF)"
   },
   "certificaciones": {
     "title": "Certificaciones que respaldan cada lote",
@@ -78,20 +100,36 @@
     "items": [
       { "code": "USDA", "name": "USDA Organic", "blurb": "Café cultivado sin agroquímicos de síntesis, bajo el estándar orgánico de Estados Unidos." },
       { "code": "OCIA", "name": "OCIA", "blurb": "Certificación orgánica internacional que verifica el manejo del cultivo desde la parcela." },
-      { "code": "4C", "name": "4C", "blurb": "Estándar de base que confirma prácticas sostenibles en lo social, ambiental y económico." },
       { "code": "FT", "name": "Fair Trade", "blurb": "Comercio justo: condiciones y precios que sostienen el ingreso de los productores." }
     ],
     "note": "Mostramos los sellos oficiales una vez verificados con el cliente; nunca un logo aproximado."
   },
   "diferenciadores": {
-    "title": "Lo que cambia cuando trabajas con nosotros",
-    "lead": "Tu mayor riesgo es no recibir el café que necesitas. Aquí lo convertimos en certeza.",
+    "title": "¿Por qué trabajar con CASEMEX?",
+    "lead": "Tu mayor riesgo es no recibir el café que necesitas, en la calidad y el tiempo que tu operación exige. Somos el proveedor industrial que lo convierte en certeza.",
     "blocks": [
-      { "title": "Volumen que no se cae", "body": "Una red consolidada de cientos de productores significa que el volumen está disponible cuando lo necesitas, no solo en buena cosecha." },
-      { "title": "La misma calidad, lote tras lote", "body": "Clasificamos y controlamos cada entrega para que el perfil que aprobaste sea el que recibas la siguiente vez." },
-      { "title": "Sabes de dónde viene", "body": "Cada lote llega con trazabilidad de origen y la certificación que tu mercado exige." },
-      { "title": "Un solo interlocutor, no cientos", "body": "En lugar de coordinar con cientos de productores dispersos, tratas con una empresa que decide rápido y responde por su palabra." }
-    ]
+      { "title": "Suministro a gran escala", "body": "Una red consolidada de cientos de productores y capacidad instalada garantizan un abasto sostenible, no solo en buena cosecha." },
+      { "title": "Calidad consistente y laboratorio propio", "body": "Mapeamos las muestras y catamos todos los lotes en nuestro laboratorio, para que el perfil que aprobaste sea el que recibas la siguiente vez." },
+      { "title": "Trazabilidad e inocuidad certificadas", "body": "Procesos acreditados por Global Markets (GFSI): cada lote llega con trazabilidad de origen, productores certificados y la certificación que tu mercado exige." },
+      { "title": "Logística global que gestionamos nosotros", "body": "Alcance mundial. Entregamos los lotes o contenedores en el destino que necesites, o FOB en puerto según tu conveniencia." }
+    ],
+    "accreditation": {
+      "title": "Procesos acreditados por Global Markets (GFSI)",
+      "intro": "Global Markets (GFSI) es el aval que garantiza que nuestros procesos cumplen con normas internacionales de inocuidad y trazabilidad alimentaria, y le da a la gran industria la confianza para trabajar con nosotros.",
+      "items": [
+        "Trazabilidad",
+        "Inocuidad",
+        "Calidad para abastecer a la gran industria",
+        "Productores certificados",
+        "Mapeo de muestras",
+        "Catación de todos los lotes",
+        "Logística confiable"
+      ]
+    },
+    "sectors": {
+      "title": "Sectores que atendemos",
+      "items": ["Industria alimentaria", "Tostadores", "Importadores"]
+    }
   },
   "origenes": {
     "title": "Nuestras regiones en Chiapas",
@@ -120,7 +158,7 @@
       "volume": "Volumen estimado",
       "volumePlaceholder": "Ej. sacos / toneladas",
       "certification": "Certificación requerida",
-      "certOptions": { "none": "Ninguna", "usda": "USDA Organic", "ocia": "OCIA", "fourc": "4C", "fairtrade": "Fair Trade", "other": "Otra" },
+      "certOptions": { "none": "Ninguna", "usda": "USDA Organic", "ocia": "OCIA", "fairtrade": "Fair Trade", "other": "Otra" },
       "message": "Mensaje",
       "submit": "Enviar solicitud",
       "sending": "Enviando…",
@@ -154,7 +192,8 @@
       "historia": "Manos de dos generaciones pasando café verde",
       "arabica": "Café verde Arábica en costal de yute",
       "robusta": "Café verde Robusta sobre madera",
-      "diferenciadores": "Costales de café apilados en bodega"
+      "diferenciadores": "Costales de café apilados en bodega",
+      "laboratorio": "Laboratorio de control de calidad y catación de CASEMEX"
     }
   }
 }

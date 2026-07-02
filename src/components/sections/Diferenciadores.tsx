@@ -3,13 +3,19 @@ import path from "node:path";
 import { useTranslations } from "next-intl";
 import Reveal from "@/components/motion/Reveal";
 import ParallaxBg from "@/components/media/ParallaxBg";
+import SmartImage from "@/components/media/SmartImage";
 import DiferenciadoresRoadmap from "@/components/sections/DiferenciadoresRoadmap";
 
 type Block = { title: string; body: string };
+type Accreditation = { title: string; intro: string; items: string[] };
+type Sectors = { title: string; items: string[] };
 
 export default function Diferenciadores() {
   const t = useTranslations("diferenciadores");
+  const m = useTranslations("media");
   const blocks = t.raw("blocks") as Block[];
+  const accreditation = t.raw("accreditation") as Accreditation;
+  const sectors = t.raw("sectors") as Sectors;
   const bgExists = existsSync(
     path.join(process.cwd(), "public", "images", "diferenciadores-bg.jpg"),
   );
@@ -35,6 +41,65 @@ export default function Diferenciadores() {
         </Reveal>
 
         <DiferenciadoresRoadmap blocks={blocks} />
+
+        <Reveal>
+          <div className="mt-16 border-t border-hairline pt-12 lg:mt-20 lg:pt-16">
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+              <div data-reveal>
+                <h3 className="font-display text-h2 text-text">{accreditation.title}</h3>
+                <p className="mt-4 text-text-muted">{accreditation.intro}</p>
+                <SmartImage
+                  src="/images/laboratorio.jpg"
+                  alt={m("imagineAlt.laboratorio")}
+                  aspect="3 / 2"
+                  className="mt-8"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  placeholderLabel={m("placeholderLabel")}
+                />
+              </div>
+              <ul
+                data-reveal-group
+                className="grid content-start gap-x-8 gap-y-4 sm:grid-cols-2"
+              >
+                {accreditation.items.map((item) => (
+                  <li
+                    key={item}
+                    data-reveal-item
+                    className="flex items-start gap-3 text-text"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      className="mt-0.5 h-5 w-5 shrink-0 text-gold"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div data-reveal className="mt-12">
+              <h3 className="text-caption font-semibold uppercase tracking-wider text-sage">
+                {sectors.title}
+              </h3>
+              <ul className="mt-4 flex flex-wrap gap-3">
+                {sectors.items.map((s) => (
+                  <li
+                    key={s}
+                    className="rounded-full border border-border px-4 py-2 text-caption font-medium text-text"
+                  >
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

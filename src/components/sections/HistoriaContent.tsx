@@ -12,6 +12,9 @@ export default function HistoriaContent() {
   const t = useTranslations("historia");
   const m = useTranslations("media");
   const facts = t.raw("facts") as Fact[];
+  // Misión/visión pending from the client — render only once provided (empty = hidden).
+  const mision = t("mision");
+  const vision = t("vision");
 
   return (
     <div className="flex h-full min-h-[100svh] items-center bg-bg md:min-h-0">
@@ -34,6 +37,27 @@ export default function HistoriaContent() {
             />
           </div>
         </div>
+
+        {(mision || vision) && (
+          <div className="mt-12 grid gap-8 border-t border-hairline pt-8 sm:grid-cols-2">
+            {mision && (
+              <div>
+                <h3 className="text-caption font-semibold uppercase tracking-wider text-gold">
+                  {t("misionTitle")}
+                </h3>
+                <p className="mt-3 text-text-muted">{mision}</p>
+              </div>
+            )}
+            {vision && (
+              <div>
+                <h3 className="text-caption font-semibold uppercase tracking-wider text-gold">
+                  {t("visionTitle")}
+                </h3>
+                <p className="mt-3 text-text-muted">{vision}</p>
+              </div>
+            )}
+          </div>
+        )}
 
         <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-hairline pt-8 sm:grid-cols-4">
           {facts.map((fact) => (

@@ -17,7 +17,6 @@ const CERT_LABELS: Record<ContactInput["certification"], string> = {
   none: "Ninguna",
   usda: "USDA Organic",
   ocia: "OCIA",
-  fourc: "4C",
   fairtrade: "Fair Trade",
   other: "Otra",
 };

@@ -17,7 +17,9 @@ export const SECTIONS = [
   { id: "empresa", key: "company" },
   { id: "proceso", key: "process" },
   { id: "productos", key: "products" },
+  { id: "calidades", key: "quality" },
   { id: "certificaciones", key: "certifications" },
+  { id: "diferenciadores", key: "why" },
   { id: "regiones", key: "regions" },
   { id: "contacto", key: "contact" },
 ] as const;
@@ -28,6 +30,7 @@ export const NAV_LINKS = [
   { id: "proceso", key: "process" },
   { id: "productos", key: "products" },
   { id: "certificaciones", key: "certifications" },
+  { id: "diferenciadores", key: "why" },
   { id: "regiones", key: "regions" },
   { id: "contacto", key: "contact" },
 ] as const;

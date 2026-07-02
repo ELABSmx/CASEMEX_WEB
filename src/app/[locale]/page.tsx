@@ -5,6 +5,7 @@ import HeroContent from "@/components/sections/HeroContent";
 import HistoriaContent from "@/components/sections/HistoriaContent";
 import Proceso from "@/components/sections/Proceso";
 import Productos from "@/components/sections/Productos";
+import Calidades from "@/components/sections/Calidades";
 import Certificaciones from "@/components/sections/Certificaciones";
 import Diferenciadores from "@/components/sections/Diferenciadores";
 import Origenes from "@/components/sections/Origenes";
@@ -25,6 +26,7 @@ export default async function Home({
     "@type": "Organization",
     name: SITE.legalName,
     alternateName: "CASEMEX",
+    slogan: "Todo es café.",
     url: SITE.url,
     email: SITE.email,
     foundingDate: "1996",
@@ -51,6 +53,7 @@ export default async function Home({
       <HeroIntroSequence hero={<HeroContent />} historia={<HistoriaContent />} />
       <Proceso />
       <Productos />
+      <Calidades />
       <Certificaciones />
       <Diferenciadores />
       <Origenes />

@@ -93,7 +93,7 @@ export default function Productos() {
               <p className="mt-3 text-text-muted">{t("arabica.intro")}</p>
               <GradeList items={t.raw("arabica.grades") as string[]} />
               <div className="mt-auto">
-                <DownloadCta label={t("arabica.cta")} file="casemex-arabica-shg.pdf" />
+                <DownloadCta label={t("arabica.cta")} file="casemex-calidades-cafe.pdf" />
               </div>
             </div>
           </article>
@@ -116,7 +116,7 @@ export default function Productos() {
               <p className="mt-3 text-text-muted">{t("robusta.intro")}</p>
               <GradeList items={t.raw("robusta.grades") as string[]} />
               <div className="mt-auto">
-                <DownloadCta label={t("robusta.cta")} file="casemex-robusta.pdf" />
+                <DownloadCta label={t("robusta.cta")} file="casemex-calidades-cafe.pdf" />
               </div>
             </div>
           </article>

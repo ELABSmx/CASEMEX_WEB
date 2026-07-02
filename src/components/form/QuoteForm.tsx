@@ -167,7 +167,6 @@ export default function QuoteForm() {
             <option value="none">{t("certOptions.none")}</option>
             <option value="usda">{t("certOptions.usda")}</option>
             <option value="ocia">{t("certOptions.ocia")}</option>
-            <option value="fourc">{t("certOptions.fourc")}</option>
             <option value="fairtrade">{t("certOptions.fairtrade")}</option>
             <option value="other">{t("certOptions.other")}</option>
           </select>

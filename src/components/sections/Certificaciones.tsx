@@ -9,7 +9,6 @@ type Cert = { code: string; name: string; blurb: string };
 const LOGOS: Record<string, string> = {
   USDA: "/images/USDA_organic_seal.svg",
   OCIA: "/images/OCIA_Logo.svg",
-  "4C": "/images/4C.png",
   FT: "/images/Logo-Fairtrade.png",
 };
 
