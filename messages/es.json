@@ -69,15 +69,15 @@
         "Especialidad 80+ SCA con trazabilidad",
         "Convencional"
       ],
-      "cta": "Descargar ficha técnica (PDF)"
+      "cta": "Ver calidades y parámetros"
     },
     "robusta": {
       "name": "Robusta",
       "intro": "Robusta mexicana para blends, café soluble y espresso: mayor cuerpo y contenido de cafeína. La variedad más solicitada por la industria, disponible en volumen constante.",
       "grades": ["Convencional"],
-      "cta": "Descargar ficha técnica (PDF)"
+      "cta": "Ver calidades y parámetros"
     },
-    "note": "Las fichas técnicas con perfil, altura y certificación están disponibles en PDF para cada producto."
+    "note": "Consulta la tabla completa de calidades y parámetros más abajo; disponible también en PDF."
   },
   "calidades": {
     "title": "Calidades y parámetros de referencia",

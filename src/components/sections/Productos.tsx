@@ -1,14 +1,7 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
 import { useTranslations } from "next-intl";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/motion/Reveal";
 import SmartImage from "@/components/media/SmartImage";
-import { cn } from "@/lib/utils";
-
-function pdfExists(file: string) {
-  return existsSync(path.join(process.cwd(), "public", "docs", file));
-}
 
 function GradeList({ items }: { items: string[] }) {
   return (
@@ -26,32 +19,17 @@ function GradeList({ items }: { items: string[] }) {
   );
 }
 
-function DownloadCta({ label, file }: { label: string; file: string }) {
-  const available = pdfExists(file);
-  const classes =
-    "mt-7 inline-flex min-h-11 items-center gap-2 rounded-md px-5 py-2.5 font-semibold transition-colors duration-200";
-  const icon = (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2" />
-    </svg>
-  );
-
-  if (!available) {
-    // PDF not provided yet — keep the feature visible but inert, no dead 404 click.
-    return (
-      <span
-        className={cn(classes, "cursor-not-allowed border border-hairline text-text-muted opacity-70")}
-        aria-disabled="true"
-      >
-        {icon}
-        {label}
-      </span>
-    );
-  }
-
+// The per-product grades live in one reference table (the Calidades section);
+// each card jumps there instead of downloading a duplicate/combined PDF.
+function GradesLink({ label }: { label: string }) {
   return (
-    <a className={cn(classes, "border border-border text-text hover:border-gold hover:text-gold")} href={`/docs/${file}`} download>
-      {icon}
+    <a
+      href="#calidades"
+      className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-md border border-border px-5 py-2.5 font-semibold text-text transition-colors duration-200 hover:border-gold hover:text-gold"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m0 0l-6-6m6 6l6-6" />
+      </svg>
       {label}
     </a>
   );
@@ -93,7 +71,7 @@ export default function Productos() {
               <p className="mt-3 text-text-muted">{t("arabica.intro")}</p>
               <GradeList items={t.raw("arabica.grades") as string[]} />
               <div className="mt-auto">
-                <DownloadCta label={t("arabica.cta")} file="casemex-calidades-cafe.pdf" />
+                <GradesLink label={t("arabica.cta")} />
               </div>
             </div>
           </article>
@@ -116,7 +94,7 @@ export default function Productos() {
               <p className="mt-3 text-text-muted">{t("robusta.intro")}</p>
               <GradeList items={t.raw("robusta.grades") as string[]} />
               <div className="mt-auto">
-                <DownloadCta label={t("robusta.cta")} file="casemex-calidades-cafe.pdf" />
+                <GradesLink label={t("robusta.cta")} />
               </div>
             </div>
           </article>

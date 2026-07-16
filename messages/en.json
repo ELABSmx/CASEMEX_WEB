@@ -69,15 +69,15 @@
         "Specialty 80+ SCA with traceability",
         "Conventional"
       ],
-      "cta": "Download spec sheet (PDF)"
+      "cta": "See grades and parameters"
     },
     "robusta": {
       "name": "Robusta",
       "intro": "Mexican Robusta for blends, soluble coffee and espresso: more body and caffeine. The variety most in demand from industry, available in steady volume.",
       "grades": ["Conventional"],
-      "cta": "Download spec sheet (PDF)"
+      "cta": "See grades and parameters"
     },
-    "note": "Spec sheets with profile, altitude and certification are available as a PDF for each product."
+    "note": "See the full grades and parameters table below; also available as a PDF."
   },
   "calidades": {
     "title": "Grades and reference parameters",
