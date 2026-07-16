@@ -16,4 +16,10 @@ export function ensureGsap() {
   registered = true;
 }
 
+// Register at module load, NOT from a component effect: useGSAP callbacks are
+// layout effects and run BEFORE any parent's useEffect, so registering there
+// (MotionProvider) left every first-mount timeline without ScrollTrigger — the
+// scrub config was ignored and animations played instantly on load.
+ensureGsap();
+
 export { gsap, ScrollTrigger, useGSAP };

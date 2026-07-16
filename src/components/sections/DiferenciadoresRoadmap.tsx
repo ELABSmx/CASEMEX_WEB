@@ -110,6 +110,21 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
       const dimBadge = { backgroundColor: DARK, color: GOLD, borderColor: GOLD_DIM, scale: 0.92 };
 
       mm.add(MM.motionOk, () => {
+        // Arrival fractions along the drawn line. Desktop's come from the SVG
+        // path geometry (NODE_AT); the stacked fallback measures where each
+        // badge actually sits on the vertical line, so the fill fires exactly
+        // when the growing head reaches the circle — same feel, straight line.
+        let nodeAt: number[] = [...NODE_AT];
+        if (!path && vline instanceof HTMLElement) {
+          const lineRect = vline.getBoundingClientRect(); // pre-transform
+          nodeAt = groups.map((g) => {
+            if (!(g.badge instanceof HTMLElement)) return 0;
+            const r = g.badge.getBoundingClientRect();
+            const center = r.top + r.height / 2 - lineRect.top;
+            return gsap.utils.clamp(0, 1, center / Math.max(1, lineRect.height));
+          });
+        }
+
         // Continuous draw via real path length (no dash artifacts).
         if (path) {
           const len = path.getTotalLength();
@@ -122,12 +137,20 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
         });
 
         const tl = gsap.timeline({
-          scrollTrigger: { trigger: root.current, start: "top 78%", end: "bottom 62%", scrub: 0.6 },
+          scrollTrigger: {
+            trigger: root.current,
+            // The stacked list is several viewports tall, so its window ends
+            // higher — otherwise the last nodes only light up at the footer.
+            start: "top 78%",
+            end: path ? "bottom 62%" : "bottom 78%",
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+          },
         });
         if (path) tl.to(path, { strokeDashoffset: 0, ease: "none", duration: 1 }, 0);
         if (vline) tl.to(vline, { scaleY: 1, ease: "none", duration: 1 }, 0);
         groups.forEach((g, i) => {
-          const at = NODE_AT[i] ?? 0;
+          const at = nodeAt[i] ?? 0;
           // Anchor the fill to FINISH as the line head reaches the circle.
           const fillDur = 0.16;
           const fillAt = Math.max(0, at - fillDur);
@@ -190,10 +213,16 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
         </div>
       ) : (
         <ol className="relative max-w-xl">
+          {/* Faint planned route + bright route that grows with scroll —
+              same pair as the desktop SVG, straightened. */}
+          <span
+            aria-hidden="true"
+            className="absolute bottom-8 left-8 top-8 w-0.5 -translate-x-1/2 bg-gold/15"
+          />
           <span
             data-road-fallback
             aria-hidden="true"
-            className="absolute bottom-8 left-8 top-8 w-0.5 -translate-x-1/2 bg-gold/45"
+            className="absolute bottom-8 left-8 top-8 w-0.5 -translate-x-1/2 bg-gold/85"
           />
           {blocks.map((block, i) => (
             <li key={block.title} className="relative flex gap-6 pb-12 last:pb-0">
