@@ -64,10 +64,9 @@ export default function Footer() {
             © 2026 {SITE.name} · {t("legalName")} · {t("rights")}
           </p>
           <div className="flex items-center gap-4">
-            {/* TODO: link to the privacy notice document once provided. */}
-            <a href="#" className="transition-colors hover:text-text">
-              {t("privacy")}
-            </a>
+            {/* TODO: turn into a real link once the client provides the
+                privacy-notice document — a dead `href="#"` is worse than text. */}
+            <span>{t("privacy")}</span>
             <span aria-hidden="true">·</span>
             <span>{t("madeIn")}</span>
           </div>

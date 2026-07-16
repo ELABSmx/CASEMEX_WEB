@@ -18,7 +18,7 @@ export default function HistoriaContent() {
 
   return (
     <div className="flex h-full min-h-[100svh] items-center bg-bg md:min-h-0">
-      <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:px-8 md:py-16 lg:py-0">
+      <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-24 md:py-16 lg:py-0">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="max-w-xl">
             <h2 className="font-display text-h1">{t("title")}</h2>

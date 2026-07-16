@@ -14,7 +14,17 @@ export default function HeroMedia() {
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const decide = () => setMode(reduce.matches ? "poster" : "video");
+    const decide = () => {
+      // Data-saver or 2G connection → stay on the poster; the ~1.4 MB loop
+      // isn't worth it there ("light/absent on phones" per PRODUCT.md).
+      const conn = (
+        navigator as Navigator & {
+          connection?: { saveData?: boolean; effectiveType?: string };
+        }
+      ).connection;
+      const slow = Boolean(conn?.saveData) || /2g/.test(conn?.effectiveType ?? "");
+      setMode(reduce.matches || slow ? "poster" : "video");
+    };
     decide();
     reduce.addEventListener("change", decide);
     return () => reduce.removeEventListener("change", decide);
@@ -54,6 +64,7 @@ export default function HeroMedia() {
           src="/images/hero-poster.jpg"
           alt=""
           aria-hidden="true"
+          fetchPriority="high"
           className="h-full w-full object-cover"
         />
       )}

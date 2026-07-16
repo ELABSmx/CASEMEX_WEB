@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bitter, Mulish } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -23,6 +23,12 @@ const mulish = Mulish({
   variable: "--font-mulish",
   display: "swap",
 });
+
+// Paints the mobile browser chrome (address bar, tab switcher) in the page's
+// espresso ground instead of default white.
+export const viewport: Viewport = {
+  themeColor: "#1A150F",
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

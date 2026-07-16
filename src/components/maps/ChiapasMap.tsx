@@ -100,7 +100,9 @@ export default function ChiapasMap({
                 y={m.y + m.dy}
                 textAnchor={m.anchor}
                 className={cn(
-                  "text-[28px] font-semibold transition-colors duration-300",
+                  // Larger on phones — the 1000-unit viewBox renders ~350px wide
+                  // there, so 28px would come out at ~10px on screen.
+                  "text-[38px] font-semibold transition-colors duration-300 md:text-[28px]",
                   active ? "fill-gold" : "fill-text",
                 )}
                 style={{ fontFamily: "var(--font-sans)", paintOrder: "stroke", stroke: "var(--color-bg)", strokeWidth: 6, strokeLinejoin: "round" }}

@@ -43,13 +43,13 @@ export default function Header() {
         {t("skip")}
       </a>
 
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6 sm:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 sm:gap-4 sm:px-8">
         <a
           href="#inicio"
           aria-label={t("home")}
           className="flex h-7 items-center text-text transition-colors hover:text-sage"
         >
-          <Logo className="h-7" />
+          <Logo className="h-6 sm:h-7" />
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
@@ -64,11 +64,11 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <LocaleToggle className="hidden sm:flex" />
           <a
             href="#contacto"
-            className="hidden min-h-11 items-center rounded-md bg-gold px-5 font-semibold text-neutral-950 transition-colors hover:bg-gold-strong sm:inline-flex"
+            className="inline-flex min-h-11 items-center rounded-md bg-gold px-4 text-[0.9375rem] font-semibold text-neutral-950 transition-colors hover:bg-gold-strong sm:px-5 sm:text-base"
           >
             {t("cta")}
           </a>
@@ -96,7 +96,7 @@ export default function Header() {
         <nav
           id="mobile-menu"
           aria-label="Mobile"
-          className="border-t border-hairline/70 bg-bg/95 px-6 pb-6 pt-2 backdrop-blur-md lg:hidden"
+          className="max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain border-t border-hairline/70 bg-bg/95 px-6 pb-6 pt-2 backdrop-blur-md lg:hidden"
         >
           <ul className="flex flex-col">
             {NAV_LINKS.map((link) => (
@@ -111,15 +111,10 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <div className="mt-5 flex items-center justify-between">
+          {/* The gold "Cotizar" CTA stays visible in the top bar, so the menu
+              only needs the language switch. */}
+          <div className="mt-5 flex items-center">
             <LocaleToggle />
-            <a
-              href="#contacto"
-              onClick={() => setOpen(false)}
-              className="inline-flex min-h-11 items-center rounded-md bg-gold px-5 font-semibold text-neutral-950"
-            >
-              {t("cta")}
-            </a>
           </div>
         </nav>
       )}

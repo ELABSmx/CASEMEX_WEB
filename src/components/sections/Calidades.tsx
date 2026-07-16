@@ -40,9 +40,47 @@ export default function Calidades() {
           <p className="mt-4 text-lead text-sage">{t("lead")}</p>
         </div>
 
+        {/* Mobile / tablet: the 6-column table only showed ~2 columns in a
+            scroller, so below lg each grade becomes a stacked spec block. */}
+        <div data-reveal className="mt-10 rounded-lg border border-hairline lg:hidden">
+          <ul>
+            {rows.map((row, i) => (
+              <li
+                key={row.calidad}
+                className={cn(
+                  "border-b border-hairline p-5 last:border-b-0 sm:p-6",
+                  i % 2 === 1 && "bg-surface/40",
+                )}
+              >
+                <h3 className="font-display text-h3 text-text">{row.calidad}</h3>
+                <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3">
+                  {(
+                    [
+                      [columns[1], row.mancha, true],
+                      [columns[2], row.especie, false],
+                      [columns[3], row.altitud, true],
+                      [columns[4], row.taza, false],
+                    ] as const
+                  ).map(([label, value, nums]) => (
+                    <div key={label}>
+                      <dt className="text-caption font-semibold uppercase tracking-wider text-sage">
+                        {label}
+                      </dt>
+                      <dd className={cn("mt-0.5 text-text", nums && "tabular-nums")}>
+                        {value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="mt-3 text-text-muted">{row.uso}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div
           data-reveal
-          className="mt-10 overflow-x-auto rounded-lg border border-hairline"
+          className="mt-10 hidden overflow-x-auto rounded-lg border border-hairline lg:block"
         >
           <table className="w-full min-w-[760px] border-collapse text-left text-base">
             <thead>

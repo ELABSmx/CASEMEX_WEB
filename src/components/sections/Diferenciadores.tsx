@@ -30,7 +30,7 @@ export default function Diferenciadores() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28 lg:py-32">
+      <div className="relative mx-auto max-w-6xl px-6 py-16 sm:px-8 sm:py-28 lg:py-32">
         <Reveal>
           <div data-reveal className="max-w-2xl">
             <h2 id="dif-title" className="font-display text-h1">

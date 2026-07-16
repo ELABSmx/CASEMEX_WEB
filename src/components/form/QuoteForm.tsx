@@ -10,7 +10,32 @@ import { cn } from "@/lib/utils";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const fieldClass =
-  "w-full rounded-md border border-border bg-neutral-950/40 px-3.5 py-2.5 text-text placeholder:text-text-muted/70 transition-colors focus-visible:border-gold focus-visible:outline-none";
+  "w-full rounded-md border border-border bg-neutral-950/40 px-3.5 py-3 text-text placeholder:text-text-muted/70 transition-colors focus-visible:border-gold focus-visible:outline-none";
+
+/** Native select, restyled to match inputs across platforms (esp. iOS). */
+function SelectField({
+  id,
+  children,
+  ...rest
+}: React.SelectHTMLAttributes<HTMLSelectElement> & { id: string }) {
+  return (
+    <span className="relative block">
+      <select id={id} className={cn(fieldClass, "appearance-none pr-10")} {...rest}>
+        {children}
+      </select>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted"
+        aria-hidden="true"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+      </svg>
+    </span>
+  );
+}
 
 export default function QuoteForm() {
   const t = useTranslations("contacto.form");
@@ -141,12 +166,12 @@ export default function QuoteForm() {
         </div>
         <div>
           <Label name="product" />
-          <select id={fid("product")} className={fieldClass} {...register("product")}>
+          <SelectField id={fid("product")} {...register("product")}>
             <option value="arabica">{t("productOptions.arabica")}</option>
             <option value="robusta">{t("productOptions.robusta")}</option>
             <option value="both">{t("productOptions.both")}</option>
             <option value="specialty">{t("productOptions.specialty")}</option>
-          </select>
+          </SelectField>
         </div>
         <div>
           <Label name="grade" />
@@ -163,13 +188,13 @@ export default function QuoteForm() {
         </div>
         <div className="sm:col-span-2">
           <Label name="certification" />
-          <select id={fid("certification")} className={fieldClass} {...register("certification")}>
+          <SelectField id={fid("certification")} {...register("certification")}>
             <option value="none">{t("certOptions.none")}</option>
             <option value="usda">{t("certOptions.usda")}</option>
             <option value="ocia">{t("certOptions.ocia")}</option>
             <option value="fairtrade">{t("certOptions.fairtrade")}</option>
             <option value="other">{t("certOptions.other")}</option>
-          </select>
+          </SelectField>
         </div>
       </div>
 

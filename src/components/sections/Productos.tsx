@@ -81,7 +81,7 @@ export default function Productos() {
             className="flex flex-col overflow-hidden rounded-lg border border-hairline bg-surface"
           >
             <SmartImage
-              src="/images/arabica.png"
+              src="/images/arabica.jpg"
               alt={m("imagineAlt.arabica")}
               aspect="3 / 2"
               rounded={false}
@@ -104,7 +104,7 @@ export default function Productos() {
             className="flex flex-col overflow-hidden rounded-lg border border-hairline bg-surface"
           >
             <SmartImage
-              src="/images/robusta.png"
+              src="/images/robusta.jpg"
               alt={m("imagineAlt.robusta")}
               aspect="3 / 2"
               rounded={false}

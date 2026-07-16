@@ -21,8 +21,8 @@ const widths: Record<NonNullable<SectionProps["width"]>, string> = {
 
 const spacings: Record<NonNullable<SectionProps["spacing"]>, string> = {
   none: "",
-  tight: "py-16 sm:py-20",
-  default: "py-20 sm:py-28 lg:py-32",
+  tight: "py-12 sm:py-20",
+  default: "py-16 sm:py-28 lg:py-32",
 };
 
 /** Section shell: handles anchor offset, vertical rhythm, and inner gutter. */

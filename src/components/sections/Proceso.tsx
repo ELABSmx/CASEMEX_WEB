@@ -99,7 +99,7 @@ export default function Proceso() {
         data-pin
         className={cn(
           "overflow-hidden",
-          horizontal ? "flex h-[100svh] flex-col justify-center gap-6" : "py-20 sm:py-28",
+          horizontal ? "flex h-[100svh] flex-col justify-center gap-6" : "py-16 sm:py-28",
         )}
       >
         <div className="mx-auto w-full max-w-6xl shrink-0 px-6 sm:px-8">
@@ -125,15 +125,14 @@ export default function Proceso() {
                 "relative shrink-0 overflow-hidden rounded-lg border border-hairline",
                 horizontal
                   ? "h-[clamp(18rem,46vh,30rem)] w-[clamp(15rem,34vw,28rem)]"
-                  : "aspect-[16/10] w-full",
+                  : "aspect-[4/3] w-full sm:aspect-[16/10]",
               )}
             >
               <Image
-                src={`/images/M${i + 1}.png`}
+                src={`/images/M${i + 1}.jpg`}
                 alt={`${step.title} — ${step.caption}`}
                 fill
                 sizes="(min-width: 768px) 34vw, 100vw"
-                priority={i === 0}
                 className="object-cover"
               />
               <div

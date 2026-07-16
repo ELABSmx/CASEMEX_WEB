@@ -8,7 +8,7 @@ export default function HeroContent() {
   const trust = t.raw("trust") as string[];
 
   return (
-    <div className="relative isolate flex h-full min-h-[100svh] items-center justify-center overflow-hidden px-6 pb-20 pt-28 text-center sm:px-8 md:min-h-0">
+    <div className="relative isolate flex h-full min-h-[100svh] items-center justify-center overflow-hidden px-6 pb-16 pt-24 text-center sm:px-8 sm:pb-20 sm:pt-28 md:min-h-0">
       <HeroMedia />
       {/* Vignette scrim — focuses darkness behind the centered text. */}
       <div className="absolute inset-0 -z-10 bg-neutral-950/55" aria-hidden="true" />
@@ -22,19 +22,21 @@ export default function HeroContent() {
       />
 
       <div className="mx-auto flex w-full max-w-3xl flex-col items-center">
-        <span aria-hidden="true" className="block h-14 text-neutral-50 sm:h-16 md:h-20">
+        <span aria-hidden="true" className="block h-12 text-neutral-50 sm:h-16 md:h-20">
           <Isotipo />
         </span>
         <p className="mt-4 font-display text-lead italic text-sage">{t("slogan")}</p>
-        <p className="mt-5 text-caption font-semibold uppercase tracking-[0.2em] text-gold/90">
+        <p className="mt-5 text-balance text-caption font-semibold uppercase tracking-[0.14em] text-gold/90 sm:tracking-[0.2em]">
           {t("kicker")}
         </p>
         <h1 className="mt-3 font-display text-hero font-semibold text-text">
           {t("headline")}
         </h1>
-        <p className="mt-6 max-w-xl text-lead text-neutral-200">{t("subhead")}</p>
+        <p className="mt-5 max-w-xl text-base text-neutral-200 sm:mt-6 sm:text-lead">
+          {t("subhead")}
+        </p>
 
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
+        <div className="mt-8 flex w-full max-w-xs flex-col gap-3 sm:mt-9 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
           <a
             href="#contacto"
             className="inline-flex min-h-12 items-center justify-center rounded-md bg-gold px-7 py-3.5 font-semibold text-neutral-950 transition-colors duration-200 hover:bg-gold-strong"
@@ -49,7 +51,7 @@ export default function HeroContent() {
           </a>
         </div>
 
-        <ul className="mt-12 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-caption text-neutral-300">
+        <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-caption text-neutral-300 sm:mt-12">
           {trust.map((item, i) => (
             <li key={item} className="flex items-center gap-3">
               {i > 0 && <span className="text-border" aria-hidden="true">•</span>}

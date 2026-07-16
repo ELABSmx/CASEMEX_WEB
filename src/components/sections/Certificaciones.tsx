@@ -37,7 +37,7 @@ export default function Certificaciones() {
             >
               {/* Official seal placed directly on the panel (no container), larger.
                   Fixed-width slot keeps the text aligned across rows. */}
-              <span className="flex h-20 w-28 shrink-0 items-center">
+              <span className="flex h-16 w-24 shrink-0 items-center sm:h-20 sm:w-28">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={LOGOS[cert.code]}
