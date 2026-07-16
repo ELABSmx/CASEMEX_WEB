@@ -26,10 +26,7 @@ export default function HeroContent() {
           <Isotipo />
         </span>
         <p className="mt-4 font-display text-lead italic text-sage">{t("slogan")}</p>
-        <p className="mt-5 text-balance text-caption font-semibold uppercase tracking-[0.14em] text-gold/90 sm:tracking-[0.2em]">
-          {t("kicker")}
-        </p>
-        <h1 className="mt-3 font-display text-hero font-semibold text-text">
+        <h1 className="mt-5 font-display text-hero font-semibold text-text">
           {t("headline")}
         </h1>
         <p className="mt-5 max-w-xl text-base text-neutral-200 sm:mt-6 sm:text-lead">
