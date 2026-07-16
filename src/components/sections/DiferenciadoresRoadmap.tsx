@@ -109,21 +109,32 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
       const fillBadge = { backgroundColor: GOLD, color: DARK, borderColor: GOLD, scale: 1.06 };
       const dimBadge = { backgroundColor: DARK, color: GOLD, borderColor: GOLD_DIM, scale: 0.92 };
 
+      // The stacked fallback line must END at the last badge's centre (the
+      // desktop SVG route also ends at its last node) instead of running to
+      // the bottom of the list. Returns each badge's arrival fraction.
+      const sizeFallbackLine = (): number[] => {
+        if (!(vline instanceof HTMLElement)) return [...NODE_AT];
+        const baseline = root.current!.querySelector("[data-road-base]");
+        const lineTop = vline.offsetTop;
+        const listTop = vline.parentElement!.getBoundingClientRect().top;
+        const centers = groups.map((g) => {
+          if (!(g.badge instanceof HTMLElement)) return lineTop;
+          const r = g.badge.getBoundingClientRect();
+          return r.top + r.height / 2 - listTop;
+        });
+        const lineHeight = Math.max(1, centers[centers.length - 1] - lineTop);
+        gsap.set([baseline, vline].filter(Boolean), { height: lineHeight });
+        return centers.map((c) =>
+          gsap.utils.clamp(0, 1, (c - lineTop) / lineHeight),
+        );
+      };
+
       mm.add(MM.motionOk, () => {
         // Arrival fractions along the drawn line. Desktop's come from the SVG
         // path geometry (NODE_AT); the stacked fallback measures where each
         // badge actually sits on the vertical line, so the fill fires exactly
         // when the growing head reaches the circle — same feel, straight line.
-        let nodeAt: number[] = [...NODE_AT];
-        if (!path && vline instanceof HTMLElement) {
-          const lineRect = vline.getBoundingClientRect(); // pre-transform
-          nodeAt = groups.map((g) => {
-            if (!(g.badge instanceof HTMLElement)) return 0;
-            const r = g.badge.getBoundingClientRect();
-            const center = r.top + r.height / 2 - lineRect.top;
-            return gsap.utils.clamp(0, 1, center / Math.max(1, lineRect.height));
-          });
-        }
+        const nodeAt: number[] = path ? [...NODE_AT] : sizeFallbackLine();
 
         // Continuous draw via real path length (no dash artifacts).
         if (path) {
@@ -151,17 +162,26 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
         if (vline) tl.to(vline, { scaleY: 1, ease: "none", duration: 1 }, 0);
         groups.forEach((g, i) => {
           const at = nodeAt[i] ?? 0;
-          // Anchor the fill to FINISH as the line head reaches the circle.
-          const fillDur = 0.16;
-          const fillAt = Math.max(0, at - fillDur);
-          tl.to(g.content, { autoAlpha: 1, ease: "power1.out", duration: 0.06 }, Math.max(0, at - 0.06));
-          tl.to(g.badge, { ...fillBadge, ease: "back.out(1.7)", duration: fillDur }, fillAt);
+          if (path) {
+            // Desktop curve: anchor the fill to FINISH as the head arrives.
+            const fillDur = 0.16;
+            tl.to(g.content, { autoAlpha: 1, ease: "power1.out", duration: 0.06 }, Math.max(0, at - 0.06));
+            tl.to(g.badge, { ...fillBadge, ease: "back.out(1.7)", duration: fillDur }, Math.max(0, at - fillDur));
+          } else {
+            // Straight line: ignite ON contact — starting earlier reads as
+            // "lit before the line arrived" on a tall vertical list.
+            tl.to(g.content, { autoAlpha: 1, ease: "power1.out", duration: 0.05 }, Math.max(0, at - 0.03));
+            tl.to(g.badge, { ...fillBadge, ease: "back.out(1.7)", duration: 0.07 }, at);
+          }
         });
       });
 
       mm.add(MM.reduce, () => {
         if (path) gsap.set(path, { strokeDasharray: "none", strokeDashoffset: 0 });
-        if (vline) gsap.set(vline, { scaleY: 1 });
+        if (vline) {
+          sizeFallbackLine();
+          gsap.set(vline, { scaleY: 1 });
+        }
         groups.forEach((g) => {
           gsap.set(g.content, { autoAlpha: 1 });
           gsap.set(g.badge, { ...dimBadge, scale: 1, borderColor: GOLD });
@@ -214,8 +234,10 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
       ) : (
         <ol className="relative max-w-xl">
           {/* Faint planned route + bright route that grows with scroll —
-              same pair as the desktop SVG, straightened. */}
+              same pair as the desktop SVG, straightened. GSAP trims both to
+              end at the LAST badge's centre (bottom-8 is the no-JS fallback). */}
           <span
+            data-road-base
             aria-hidden="true"
             className="absolute bottom-8 left-8 top-8 w-0.5 -translate-x-1/2 bg-gold/15"
           />
