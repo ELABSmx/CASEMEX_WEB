@@ -28,7 +28,7 @@ export default function Certificaciones() {
           <p className="mt-4 text-lead text-brand">{t("lead")}</p>
         </div>
 
-        <ul data-reveal-group className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2">
+        <ul data-reveal-group className="mt-12 grid gap-x-8 gap-y-10 lg:grid-cols-3">
           {items.map((cert) => (
             <li
               key={cert.code}
