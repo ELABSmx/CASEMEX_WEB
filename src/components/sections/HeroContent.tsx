@@ -5,7 +5,6 @@ import Isotipo from "@/components/brand/Isotipo";
 /** Hero inner content (media + scrim + text). Fills its parent layer. */
 export default function HeroContent() {
   const t = useTranslations("hero");
-  const trust = t.raw("trust") as string[];
 
   return (
     <div className="relative isolate flex h-full min-h-[100svh] items-center justify-center overflow-hidden px-6 pb-16 pt-24 text-center sm:px-8 sm:pb-20 sm:pt-28 md:min-h-0">
@@ -47,15 +46,6 @@ export default function HeroContent() {
             {t("ctaSecondary")}
           </a>
         </div>
-
-        <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-caption text-neutral-300 sm:mt-12">
-          {trust.map((item, i) => (
-            <li key={item} className="flex items-center gap-3">
-              {i > 0 && <span className="text-border" aria-hidden="true">•</span>}
-              <span className="font-medium tracking-wide">{item}</span>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );
