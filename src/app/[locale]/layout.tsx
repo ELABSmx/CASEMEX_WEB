@@ -90,6 +90,15 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${bitter.variable} ${mulish.variable}`}>
       <body>
+        {/* Runs during HTML parse — BEFORE the browser restores scroll on
+            reload — so a refresh always lands at the top. The MotionProvider
+            useEffect runs after hydration, too late to beat the restore. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}",
+          }}
+        />
         <NextIntlClientProvider>
           <MotionProvider>
             <Header />
