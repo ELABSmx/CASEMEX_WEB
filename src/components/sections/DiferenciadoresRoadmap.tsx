@@ -100,8 +100,10 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
       if (!root.current) return;
       const path = root.current.querySelector<SVGPathElement>("[data-road]");
       const vline = root.current.querySelector("[data-road-fallback]");
+      // querySelectorAll: the stacked fallback splits one node's text into two
+      // siblings (heading row + body) sharing the same data-content index.
       const groups = blocks.map((_, i) => ({
-        content: root.current!.querySelector(`[data-content="${i}"]`),
+        content: root.current!.querySelectorAll(`[data-content="${i}"]`),
         badge: root.current!.querySelector(`[data-badge="${i}"]`),
       }));
       const mm = gsap.matchMedia();
@@ -109,32 +111,51 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
       const fillBadge = { backgroundColor: GOLD, color: DARK, borderColor: GOLD, scale: 1.06 };
       const dimBadge = { backgroundColor: DARK, color: GOLD, borderColor: GOLD_DIM, scale: 0.92 };
 
-      // The stacked fallback line must END at the last badge's centre (the
-      // desktop SVG route also ends at its last node) instead of running to
-      // the bottom of the list. Returns each badge's arrival fraction.
+      // The stacked fallback line must span exactly from the FIRST badge's
+      // centre to the LAST badge's centre (the desktop SVG route starts and
+      // ends at its nodes too). Returns each badge's arrival fraction.
       const sizeFallbackLine = (): number[] => {
         if (!(vline instanceof HTMLElement)) return [...NODE_AT];
         const baseline = root.current!.querySelector("[data-road-base]");
-        const lineTop = vline.offsetTop;
         const listTop = vline.parentElement!.getBoundingClientRect().top;
         const centers = groups.map((g) => {
-          if (!(g.badge instanceof HTMLElement)) return lineTop;
+          if (!(g.badge instanceof HTMLElement)) return 0;
           const r = g.badge.getBoundingClientRect();
           return r.top + r.height / 2 - listTop;
         });
-        const lineHeight = Math.max(1, centers[centers.length - 1] - lineTop);
-        gsap.set([baseline, vline].filter(Boolean), { height: lineHeight });
+        const first = centers[0] ?? 0;
+        const lineHeight = Math.max(1, (centers[centers.length - 1] ?? first) - first);
+        gsap.set([baseline, vline].filter(Boolean), { top: first, height: lineHeight });
         return centers.map((c) =>
-          gsap.utils.clamp(0, 1, (c - lineTop) / lineHeight),
+          gsap.utils.clamp(0, 1, (c - first) / lineHeight),
         );
       };
 
       mm.add(MM.motionOk, () => {
-        // Arrival fractions along the drawn line. Desktop's come from the SVG
-        // path geometry (NODE_AT); the stacked fallback measures where each
-        // badge actually sits on the vertical line, so the fill fires exactly
-        // when the growing head reaches the circle — same feel, straight line.
-        const nodeAt: number[] = path ? [...NODE_AT] : sizeFallbackLine();
+        // Arrival fractions along the drawn line. Desktop MEASURES where the
+        // SVG path actually passes each node (the nodes are the curve's anchor
+        // points) instead of trusting hardcoded guesses, so a badge fills
+        // exactly when the growing head reaches it. The stacked fallback
+        // measures badge positions on the vertical line for the same effect.
+        const measurePathFractions = (p: SVGPathElement): number[] => {
+          const total = p.getTotalLength();
+          const targets = NODES.map((n) => ({
+            x: (n.x / 100) * 1200,
+            y: (n.y / 100) * 1000,
+          }));
+          const best = targets.map(() => ({ dist: Infinity, frac: 0 }));
+          const STEPS = 500;
+          for (let s = 0; s <= STEPS; s++) {
+            const l = (s / STEPS) * total;
+            const pt = p.getPointAtLength(l);
+            targets.forEach((t, i) => {
+              const d = (pt.x - t.x) ** 2 + (pt.y - t.y) ** 2;
+              if (d < best[i].dist) best[i] = { dist: d, frac: l / total };
+            });
+          }
+          return best.map((b) => b.frac);
+        };
+        const nodeAt: number[] = path ? measurePathFractions(path) : sizeFallbackLine();
 
         // Continuous draw via real path length (no dash artifacts).
         if (path) {
@@ -163,9 +184,10 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
         groups.forEach((g, i) => {
           const at = nodeAt[i] ?? 0;
           if (path) {
-            // Desktop curve: anchor the fill to FINISH as the head arrives.
-            const fillDur = 0.16;
-            tl.to(g.content, { autoAlpha: 1, ease: "power1.out", duration: 0.06 }, Math.max(0, at - 0.06));
+            // Desktop curve: ignite ON contact — a short fill that FINISHES as
+            // the head reaches the node (the old 0.16 lit it well before).
+            const fillDur = 0.05;
+            tl.to(g.content, { autoAlpha: 1, ease: "power1.out", duration: 0.05 }, Math.max(0, at - 0.05));
             tl.to(g.badge, { ...fillBadge, ease: "back.out(1.7)", duration: fillDur }, Math.max(0, at - fillDur));
           } else {
             // Straight line: ignite ON contact — starting earlier reads as
@@ -247,13 +269,24 @@ export default function DiferenciadoresRoadmap({ blocks }: { blocks: Block[] }) 
             className="absolute bottom-8 left-8 top-8 w-0.5 -translate-x-1/2 bg-gold/85"
           />
           {blocks.map((block, i) => (
-            <li key={block.title} className="relative flex gap-6 pb-12 last:pb-0">
-              <span className="relative z-10 shrink-0">
-                <IconBubble i={i} />
-              </span>
-              <div data-content={i} className="pt-2">
-                <NodeText block={block} index={i} align="left" />
+            <li key={block.title} className="relative pb-12 last:pb-0">
+              {/* Bubble vertically centred against the number + title group,
+                  mirroring the desktop layout where text centres on the node. */}
+              <div className="flex items-center gap-5">
+                <span className="relative z-10 shrink-0">
+                  <IconBubble i={i} />
+                </span>
+                <div data-content={i}>
+                  <span className="font-display text-caption font-semibold tracking-wider text-gold/50">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-0.5 font-display text-h2 text-gold">{block.title}</h3>
+                </div>
               </div>
+              {/* Body shares the text column (bubble 4rem + gap 1.25rem). */}
+              <p data-content={i} className="mt-3 pl-[5.25rem] text-neutral-200">
+                {block.body}
+              </p>
             </li>
           ))}
         </ol>
