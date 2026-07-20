@@ -43,7 +43,7 @@ export default function Diferenciadores() {
         <DiferenciadoresRoadmap blocks={blocks} />
 
         <Reveal>
-          <div className="mt-16 border-t border-hairline pt-12 lg:mt-20 lg:pt-16">
+          <div className="mt-16 border-t border-hairline pt-12 lg:mt-32 lg:pt-16">
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
               <div data-reveal>
                 <h3 className="font-display text-h2 text-text">{accreditation.title}</h3>
