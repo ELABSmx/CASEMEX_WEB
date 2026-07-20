@@ -49,8 +49,8 @@ export default function Diferenciadores() {
                 <h3 className="font-display text-h2 text-text">{accreditation.title}</h3>
                 <p className="mt-4 text-text-muted">{accreditation.intro}</p>
                 <SmartImage
-                  src="/images/laboratorio.jpg"
-                  alt={m("imagineAlt.laboratorio")}
+                  src="/images/productores-campo.jpg"
+                  alt={m("imagineAlt.productores")}
                   aspect="3 / 2"
                   className="mt-8"
                   sizes="(min-width: 1024px) 40vw, 100vw"
